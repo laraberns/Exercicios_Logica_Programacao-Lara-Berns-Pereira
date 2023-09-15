@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <form>
+        <div class="formulario">
+            <label for="idNome" class="etiqueta">Qual é o seu nome?</label>
+            <input type="text" id="idNome" placeholder="Digite seu nome" class="campoFormulario">
+            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+
+    <script>
+        function lerNome() {
+            let nome = document.getElementById("idNome").value
+            let saida = document.getElementById("idSaida")
+
+            saida.innerText = "Olá " + nome + ", é um prazer te conhecer! "
+            
+        }
+    </script>
+</body>
+
+</html>

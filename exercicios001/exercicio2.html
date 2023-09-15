@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <form>
+        <div class="formulario">
+            <label for="idNome" class="etiqueta">Nome do(a) Funcionário(a):</label>
+            <input type="text" id="idNome" placeholder="Digite o nome" class="campoFormulario">
+
+            <label for="idSalario" class="etiqueta">Salário:</label>
+            <input type="text" id="idSalario" placeholder="Digite o salário" class="campoFormulario">
+
+            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+
+    <script>
+        function lerNome() {
+            let nome = document.getElementById("idNome").value
+            let salario = document.getElementById("idSalario").value
+            let saida = document.getElementById("idSaida")
+
+            saida.innerText = "O(A) funcionário(a) " + nome + " tem um salário de R$ " + salario + " em junho."
+        }
+    </script>
+</body>
+
+</html>

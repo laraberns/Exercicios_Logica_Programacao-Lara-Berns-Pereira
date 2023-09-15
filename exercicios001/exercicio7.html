@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <form>
+        <div class="formulario">
+            <label for="idNumero" class="etiqueta">Digite uma distância em metros:</label>
+            <input type="number" id="idNumero" placeholder="Digite uma distância em metros" class="campoFormulario">
+
+            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+            <p id="idSaida2" class="idSaida"></p>
+            <p id="idSaida3" class="idSaida"></p>
+            <p id="idSaida4" class="idSaida"></p>
+            <p id="idSaida5" class="idSaida"></p>
+            <p id="idSaida6" class="idSaida"></p>
+            <p id="idSaida7" class="idSaida"></p>
+        </div>
+    </form>
+
+
+    <script>
+        function lerNome() {
+            let numero = Number(document.getElementById("idNumero").value)
+            let saida = document.getElementById("idSaida")
+            let saida2 = document.getElementById("idSaida2")
+            let saida3 = document.getElementById("idSaida3")
+            let saida4 = document.getElementById("idSaida4")
+            let saida5 = document.getElementById("idSaida5")
+            let saida6 = document.getElementById("idSaida6")
+            let saida7 = document.getElementById("idSaida7")
+
+
+            let km = numero / 1000
+            let hm = numero / 100
+            let dam = numero / 10
+            let dm = numero * 10
+            let cm = numero * 100
+            let mm = numero * 1000
+
+            saida.innerText = "A distância de " + numero + "m corresponde a"
+
+            saida2.innerText = km + "KM"
+            saida3.innerText = hm + "HM"
+            saida4.innerText = dam + "Dam"
+            saida5.innerText = dm + "dm"
+            saida6.innerText = cm + "cm"
+            saida7.innerText = mm + "mm"
+        }
+    </script>
+</body>
+
+</html>

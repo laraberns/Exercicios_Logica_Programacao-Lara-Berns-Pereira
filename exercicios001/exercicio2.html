@@ -10,15 +10,19 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()">
         <div class="formulario">
             <label for="idNome" class="etiqueta">Nome do(a) Funcionário(a):</label>
-            <input type="text" id="idNome" placeholder="Digite o nome" class="campoFormulario">
+
+            <!-- regex que aceite somente letras (maiúsculas ou minúsculas), podendo conter espaço, e tenha um mínimo de 3 letras e máximo 20 letras-->
+
+            <input type="text" id="idNome" placeholder="Digite o nome" class="campoFormulario" required
+                pattern="/^([A-Za-z]\s?){3,20}$/g" title="Digite o nome completo">
 
             <label for="idSalario" class="etiqueta">Salário:</label>
-            <input type="text" id="idSalario" placeholder="Digite o salário" class="campoFormulario">
+            <input type="text" id="idSalario" placeholder="Digite o salário" class="campoFormulario" required>
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -33,6 +37,8 @@
             let saida = document.getElementById("idSaida")
 
             saida.innerText = "O(A) funcionário(a) " + nome + " tem um salário de R$ " + salario + " em junho."
+
+            return false;
         }
     </script>
 </body>

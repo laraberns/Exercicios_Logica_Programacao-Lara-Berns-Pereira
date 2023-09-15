@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
+:root{
+    --fonte-primaria: 'Roboto', sans-serif;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -11,7 +15,7 @@ body {
 .formulario {
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte-primaria);
     width: 100%;
 }
 
@@ -21,16 +25,17 @@ body {
     border: 2px solid black;
     border-radius: 5px;
     align-self: start;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte-primaria);
 }
 
 .campoFormulario {
     border: 1.5px solid black;
     margin: 20px 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte-primaria);
     font-weight: 500;
     padding: 10px 5px;
     font-size: 20px;
+    border-radius: 5px;
 }
 
 .campoFormulario::placeholder {
@@ -42,13 +47,14 @@ body {
 }
 
 .botaoForm:hover {
-    background-color: #a0a0a0;
+    background-color: #70b157;
+    color: aliceblue;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .saidaDeDados{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte-primaria);
     padding: 10px 5px;
     font-size: 20px;
     color: red;

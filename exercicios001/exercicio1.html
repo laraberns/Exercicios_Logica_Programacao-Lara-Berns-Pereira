@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()" name="myForm">
         <div class="formulario">
             <label for="idNome" class="etiqueta">Qual é o seu nome?</label>
-            <input type="text" id="idNome" placeholder="Digite seu nome" class="campoFormulario">
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <input type="text" id="idNome" placeholder="Digite o seu nome" class="campoFormulario" required>
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -24,11 +24,13 @@
 
     <script>
         function lerNome() {
+          
             let nome = document.getElementById("idNome").value
             let saida = document.getElementById("idSaida")
 
             saida.innerText = "Olá " + nome + ", é um prazer te conhecer! "
-            
+
+            return false;
         }
     </script>
 </body>

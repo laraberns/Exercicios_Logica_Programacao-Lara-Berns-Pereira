@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()" name="myForm">
         <div class="formulario">
             <label for="idNumero" class="etiqueta">Digite um número inteiro:</label>
-            <input type="number" id="idNumero" placeholder="Digite um número inteiro" class="campoFormulario"
-                oninput="this.value = Math.round(this.value);">
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <input type="number" id="idNumero" placeholder="Digite um número inteiro" class="campoFormulario" required step="1">
+
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -34,6 +34,8 @@
             saida.innerText = "O antecessor de " + numero + " é " + (numero - 1) + "."
 
             saida2.innerText = "O sucessor de " + numero + " é " + (numero + 1) + "."
+
+            return false;
         }
     </script>
 </body>

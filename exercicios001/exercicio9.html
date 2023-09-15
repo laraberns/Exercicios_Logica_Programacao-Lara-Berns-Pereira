@@ -10,15 +10,15 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()" name="myForm">
         <div class="formulario">
             <label for="idLargura" class="etiqueta">Digite a largura da parede:</label>
-            <input type="number" id="idLargura" placeholder="m&#x00B2" class="campoFormulario">
+            <input type="number" id="idLargura" placeholder="m&#x00B2" class="campoFormulario" required step="any">
 
             <label for="idAltura" class="etiqueta">Digite a altura da parede:</label>
-            <input type="number" id="idAltura" placeholder="m&#x00B2" class="campoFormulario">
+            <input type="number" id="idAltura" placeholder="m&#x00B2" class="campoFormulario" required step="any">
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -39,6 +39,8 @@
 
             saida.innerText = "A área a ser pintada é de " + area + " ㎡. "
             saida2.innerText = "A quantidade de tinta necessária para o serviço é de " + qtdTinta + " litros. "
+
+            return false;
         }
     </script>
 </body>

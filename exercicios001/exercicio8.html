@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()" name="myForm">
         <div class="formulario">
             <label for="idReais" class="etiqueta">Digite quantos R$ tem na carteira:</label>
-            <input type="number" id="idReais" placeholder="Digite o valor númerico" class="campoFormulario">
+            <input type="number" id="idReais" placeholder="Digite o valor númerico" class="campoFormulario" required step="any">
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -32,6 +32,8 @@
             let valorCompraDolaresArredondado = valorCompraDolares.toFixed(2)
 
             saida.innerText = "Você pode comprar U$" + valorCompraDolaresArredondado + "."
+
+            return false;
         }
     </script>
 </body>

@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <form>
-        <div class="formulario">
+        <form onsubmit="return lerNome()" name="myForm">
+            <div class="formulario">
             <label for="idNumero" class="etiqueta">Digite um número:</label>
-            <input type="number" id="idNumero" placeholder="Digite um número" class="campoFormulario">
+            <input type="number" id="idNumero" placeholder="Digite um número" class="campoFormulario" required step="any">
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -36,6 +36,8 @@
             saida.innerText = "O dobro de " + numero + " é " + dobro + "."
 
             saida2.innerText = "A terça parte de " + numero + " é " + tercaParte + "."
+
+            return false;
         }
     </script>
 </body>

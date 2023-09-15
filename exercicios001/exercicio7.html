@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return lerNome()" name="myForm">
         <div class="formulario">
             <label for="idNumero" class="etiqueta">Digite uma distância em metros:</label>
-            <input type="number" id="idNumero" placeholder="Digite uma distância em metros" class="campoFormulario">
+            <input type="number" id="idNumero" placeholder="Digite uma distância em metros" class="campoFormulario" required step="any">
 
-            <input type="button" value="Enviar" class="botaoForm" onclick="lerNome()">
+            <button type="submit" class="botaoForm">Enviar</button>
         </div>
         <div class="saidaDeDados">
             <p id="idSaida" class="idSaida"></p>
@@ -56,6 +56,8 @@
             saida5.innerText = dm + "dm"
             saida6.innerText = cm + "cm"
             saida7.innerText = mm + "mm"
+
+            return false;
         }
     </script>
 </body>

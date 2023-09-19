@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return verificaMaior()'>
+        <div class="formulario">
+            <label class="etiqueta titulo">Digite números <span class="negrito">diferentes</span> </label>
+            <label for="idNumber" class="etiqueta">Digite um número:</label>
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" step="any" required>
+
+            <label for="idNumber2" class="etiqueta">Digite o segundo número:</label>
+            <input type="number" id="idNumber2" placeholder="Número 2" class="campoFormulario" step="any" required>
+
+            <label for="idNumber3" class="etiqueta">Digite ou terceiro número:</label>
+            <input type="number" id="idNumber3" placeholder="Número 3" class="campoFormulario" step="any" required>
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+    <script>
+        function verificaMaior() {
+            let numero1 = Number(document.getElementById('idNumber').value)
+            let numero2 = Number(document.getElementById('idNumber2').value)
+            let numero3 = Number(document.getElementById('idNumber3').value)
+            let saida = document.getElementById('idSaida')
+
+            if (numero1 == numero2 || numero2 == numero3 || numero1 == numero3) {
+                alert("Digite números diferentes")
+                saida.innerText = "Digite números diferentes"
+            } else {
+                if (numero2 > numero1 && numero2 > numero3 && numero1 > numero3) {
+                    saida.innerText = numero2 + " > " + numero1 + " > " + numero3 + ". "
+                }
+                else {
+                    if (numero2 > numero1 && numero2 > numero3 && numero1 > numero3) {
+                        saida.innerText = numero2 + " > " + numero1 + " > " + numero3 + ". "
+                    } else {
+                        if (numero1 > numero2 && numero3 > numero2 && numero1 > numero3) {
+                            saida.innerText = numero1 + " > " + numero3 + " > " + numero2 + ". "
+                        } else {
+                            if (numero1 > numero2 && numero3 > numero2 && numero1 < numero3) {
+                                saida.innerText = numero3 + " > " + numero1 + " > " + numero2 + ". "
+                            } else {
+                                if (numero1 < numero2 && numero3 < numero2 && numero3 > numero1) {
+                                    saida.innerText = numero2 + " > " + numero3 + " > " + numero1 + ". "
+                                } else {
+                                    if (numero1 > numero2 && numero1 > numero3 && numero2 > numero3) {
+                                        saida.innerText = numero1 + " > " + numero2 + " > " + numero3 + ". "
+                                    } else {
+                                        saida.innerText = numero3 + " > " + numero2 + " > " + numero1 + ". "
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

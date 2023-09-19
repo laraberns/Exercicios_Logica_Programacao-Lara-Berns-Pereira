@@ -63,3 +63,11 @@ body {
 .idSaida{
     margin-bottom: 10px
 }
+
+.negrito{
+    font-weight: 600;
+}
+
+.titulo{
+    margin-bottom: 10px;
+}

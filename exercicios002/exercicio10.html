@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return verificaUsuario()'>
+        <div class="formulario">
+            <label for="idUser" class="etiqueta">Digite o userId:</label>
+            <input type="text" id="idUser" placeholder="userId" class="campoFormulario" required>
+
+            <label for="idSenha" class="etiqueta">Digite a senha:</label>
+            <input type="text" id="idSenha" placeholder="Senha" class="campoFormulario" required>
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+    <script>
+        function verificaUsuario() {
+            let userId = document.getElementById('idUser').value
+            let senha = document.getElementById('idSenha').value
+            let saida = document.getElementById('idSaida')
+
+            let Aluno1 = "Trocar123"
+            let Aluno2 = "Senha@123"
+            let Aluno3 = "123Trocar"
+
+            if ((userId == "Aluno1" && senha == Aluno1) || (userId == "Aluno2" && senha == Aluno2) || (userId == "Aluno3" && senha == Aluno3)) {
+                saida.innerText = "Acesso Permitido"
+            } else {
+                if ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3)) {
+                    saida.innerText = "Senha incorreta"
+                } else {
+                    saida.innerText = "Usuário não cadastrado"
+                }
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

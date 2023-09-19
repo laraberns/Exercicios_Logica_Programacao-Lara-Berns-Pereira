@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return verificaValorDaVenda()'>
+        <div class="formulario">
+            <label for="idValorCompra" class="etiqueta">Digite o valor da compra:</label>
+            <input type="number" id="idValorCompra" placeholder="Valor da compra" class="campoFormulario" step="0.01"
+                required>
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+    <script>
+        function verificaValorDaVenda() {
+            let valorDaCompra = Number(document.getElementById('idValorCompra').value)
+            let saida = document.getElementById('idSaida')
+
+            if (valorDaCompra < 20) {
+                saida.innerText = "O valor da venda é R$ " + (valorDaCompra * 1.5)
+            } else {
+                saida.innerText = "O valor da venda é R$ " + (valorDaCompra * 1.35)
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div id="corpo">
+    <form onsubmit='return verificaValorDaVenda()'>
+        <div class="formulario">
+
+            <p class="tituloFormas"> Escolha uma forma geométrica</p>
+            <div>
+                <input type="radio" name="nmForma" id="idCirculo">
+                <label for="idCirculo" class="etiqueta">Círculo</label>
+
+                <input type="radio" name="nmForma" id="idRetangulo">
+                <label for="idRetangulo" class="etiqueta">Retângulo</label>
+
+                <input type="radio" name="nmForma" id="idTrianguloRetangulo">
+                <label for="idTrianguloRetangulo" class="etiqueta">Triangulo Retângulo</label>
+
+                <input type="radio" name="nmForma" id="idTrianguloEquilatero">
+                <label for="idTrianguloEquilatero" class="etiqueta">Triangulo Equilátero</label>
+            </div>
+
+            <button type="submit" class="botaoForm radio">Enviar</button>
+        </div>
+    </form>
+
+        <div id="valoresFormas">
+            <div id="circulo">
+                <label for="idRaio" class="etiqueta">Digite o valor do raio</label>
+                <input type="number" id="idRaio" placeholder="Valor do raio" class="campoFormulario" step="0.01">
+                <button type="button" class="botaoForm" onclick="calculaCirculo()">Enviar</button>
+
+                <div class="saidaDeDados">
+                    <p id="idSaidaCirculo" class="idSaida"></p>
+                </div>
+            </div>
+
+            <div id="retangulo">
+                <label for="idBase" class="etiqueta">Digite o valor da base</label>
+                <input type="number" id="idBase" placeholder="Valor da base" class="campoFormulario" step="0.01">
+
+                <label for="idAltura" class="etiqueta">Digite o valor da altura</label>
+                <input type="number" id="idAltura" placeholder="Valor da Altura" class="campoFormulario" step="0.01">
+
+                <button type="button" class="botaoForm" onclick="calculaRetangulo()">Enviar</button>
+
+                <div class="saidaDeDados">
+                    <p id="idSaidaRetangulo" class="idSaida"></p>
+                </div>
+            </div>
+
+            <div id="retanguloTriangulo">
+                <label for="idBaseTR" class="etiqueta">Digite o valor da base</label>
+                <input type="number" id="idBaseTR" placeholder="Valor da base" class="campoFormulario" step="0.01">
+
+                <label for="idAlturaTR" class="etiqueta">Digite o valor da altura</label>
+                <input type="number" id="idAlturaTR" placeholder="Valor da Altura" class="campoFormulario" step="0.01">
+
+                <button type="button" class="botaoForm" onclick="calculaRT()">Enviar</button>
+
+                <div class="saidaDeDados">
+                    <p id="idSaidaTR" class="idSaida"></p>
+                </div>
+            </div>
+
+
+                <div id="te">
+                    <label for="idLado" class="etiqueta">Digite o valor do lado</label>
+                    <input type="number" id="idLado" placeholder="Valor do lado" class="campoFormulario" step="0.01">
+                    <button type="button" class="botaoForm" onclick="calculaTE()">Enviar</button>
+
+                    <div class="saidaDeDados">
+                        <p id="idSaidaTE" class="idSaida"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+
+    <script>
+
+        //circulo
+        function perguntaValorCirculo() {
+            let raio = document.getElementById("circulo")
+
+            raio.style.display = "flex"
+        }
+
+        function calculaCirculo() {
+            let pi = Math.PI
+            let saida = document.getElementById('idSaidaCirculo')
+            let valorRaio = Number(document.getElementById("idRaio").value)
+
+            saida.innerText = 'A área do círculo é ' + ((pi * (valorRaio * valorRaio)).toFixed(4))
+
+        }
+
+        //retangulo
+        function perguntaValorRetangulo() {
+            let retangulo = document.getElementById("retangulo")
+
+            retangulo.style.display = "flex"
+        }
+
+        function calculaRetangulo() {
+            let saida = document.getElementById('idSaidaRetangulo')
+            let base = Number(document.getElementById("idBase").value)
+            let altura = Number(document.getElementById("idAltura").value)
+
+            saida.innerText = 'A área do retângulo é ' + ((base * altura).toFixed(4))
+
+        }
+
+        //triangulo retangulo
+        function perguntaValorRT() {
+            let trianguloRetango = document.getElementById("retanguloTriangulo")
+
+            trianguloRetango.style.display = "flex"
+        }
+
+        function calculaRT() {
+            let saida = document.getElementById('idSaidaTR')
+            let base = Number(document.getElementById("idBaseTR").value)
+            let altura = Number(document.getElementById("idAlturaTR").value)
+
+            saida.innerText = 'A área do triângulo retângulo é ' + (((base * altura) / 2).toFixed(4))
+
+        }
+
+        //triangulo equilatero
+        function perguntaValorTE() {
+            let te = document.getElementById("te")
+
+            te.style.display = "flex"
+        }
+
+        function calculaTE() {
+            let saida = document.getElementById('idSaidaTE')
+            let lado = Number(document.getElementById("idLado").value)
+
+            saida.innerText = 'A área do triângulo equilátero é ' + ((((lado*lado)* Math.sqrt(3)) / 4).toFixed(4))
+
+        }
+
+
+
+        function verificaValorDaVenda() {
+            let circulo = document.getElementById("idCirculo").checked
+            let retangulo = document.getElementById("idRetangulo").checked
+            let trianguloRetangulo = document.getElementById("idTrianguloRetangulo").checked
+            let trianguloEquilatero = document.getElementById("idTrianguloEquilatero").checked
+
+            let campoSaidaCirculo = document.getElementById('circulo')
+            let campoSaidaRetangulo = document.getElementById("retangulo")
+            let campoSaidaRetanguloTriangulo = document.getElementById("retanguloTriangulo")
+            let campoSaidaTE = document.getElementById("te")
+
+
+            if (circulo == true) {
+                campoSaidaRetangulo.style.display = "none"
+                campoSaidaRetanguloTriangulo.style.display = "none"
+                campoSaidaTE.style.display = "none"
+                perguntaValorCirculo()
+            } else {
+                if (retangulo == true) {
+                    campoSaidaCirculo.style.display = "none"
+                    campoSaidaRetanguloTriangulo.style.display = "none"
+                    campoSaidaTE.style.display = "none"
+                    perguntaValorRetangulo()
+                } else {
+                    if (trianguloRetangulo == true) {
+                        campoSaidaCirculo.style.display = "none"
+                        campoSaidaRetangulo.style.display = "none"
+                        campoSaidaTE.style.display = "none"
+                        perguntaValorRT()
+                    } else {
+                        if (trianguloEquilatero == true) {
+                            campoSaidaCirculo.style.display = "none"
+                            campoSaidaRetangulo.style.display = "none"
+                            campoSaidaRetanguloTriangulo.style.display = "none"
+                            perguntaValorTE()
+                        }
+                    }
+                }
+            }
+
+       
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

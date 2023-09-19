@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form onsubmit='return verificaMaior()'>
+    <form onsubmit='return verificaValor()'>
         <div class="formulario">
             <label for="idNumber" class="etiqueta">Digite um número:</label>
             <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" step="any" required>
@@ -24,7 +24,7 @@
     </form>
 
     <script>
-        function verificaMaior() {
+        function verificaValor() {
             let numero1 = Number(document.getElementById('idNumber').value)
             let saida = document.getElementById('idSaida')
 

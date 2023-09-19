@@ -71,3 +71,27 @@ body {
 .titulo{
     margin-bottom: 10px;
 }
+
+.radio{
+    margin-top: 20px;
+}
+
+.tituloFormas{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+#valoresFormas{
+    font-family: var(--fonte-primaria);
+    margin-top: 50px;
+}
+
+#circulo, #retangulo, #retanguloTriangulo, #te{
+    display: none;
+    flex-direction: column;
+}
+
+#corpo{
+    display: block;
+}

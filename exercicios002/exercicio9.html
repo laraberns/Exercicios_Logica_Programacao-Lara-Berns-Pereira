@@ -11,31 +11,31 @@
 
 <body>
     <div id="corpo">
-    <form onsubmit='return verificaValorDaVenda()'>
-        <div class="formulario">
+        <form onsubmit='return verificaForma()'>
+            <div class="formulario">
 
-            <p class="tituloFormas"> Escolha uma forma geométrica</p>
-            <div>
-                <input type="radio" name="nmForma" id="idCirculo">
-                <label for="idCirculo" class="etiqueta">Círculo</label>
+                <p class="tituloFormas"> Escolha uma forma geométrica</p>
+                <div>
+                    <input type="radio" name="nmForma" id="idCirculo">
+                    <label for="idCirculo" class="etiqueta">Círculo</label>
 
-                <input type="radio" name="nmForma" id="idRetangulo">
-                <label for="idRetangulo" class="etiqueta">Retângulo</label>
+                    <input type="radio" name="nmForma" id="idRetangulo">
+                    <label for="idRetangulo" class="etiqueta">Retângulo</label>
 
-                <input type="radio" name="nmForma" id="idTrianguloRetangulo">
-                <label for="idTrianguloRetangulo" class="etiqueta">Triangulo Retângulo</label>
+                    <input type="radio" name="nmForma" id="idTrianguloRetangulo">
+                    <label for="idTrianguloRetangulo" class="etiqueta">Triangulo Retângulo</label>
 
-                <input type="radio" name="nmForma" id="idTrianguloEquilatero">
-                <label for="idTrianguloEquilatero" class="etiqueta">Triangulo Equilátero</label>
+                    <input type="radio" name="nmForma" id="idTrianguloEquilatero">
+                    <label for="idTrianguloEquilatero" class="etiqueta">Triangulo Equilátero</label>
+                </div>
+
+                <button type="submit" class="botaoForm radio">Enviar</button>
             </div>
-
-            <button type="submit" class="botaoForm radio">Enviar</button>
-        </div>
-    </form>
+        </form>
 
         <div id="valoresFormas">
             <div id="circulo">
-                <label for="idRaio" class="etiqueta">Digite o valor do raio</label>
+                <label for="idRaio" class="etiqueta">Digite o valor do raio (cm)</label>
                 <input type="number" id="idRaio" placeholder="Valor do raio" class="campoFormulario" step="0.01">
                 <button type="button" class="botaoForm" onclick="calculaCirculo()">Enviar</button>
 
@@ -45,10 +45,10 @@
             </div>
 
             <div id="retangulo">
-                <label for="idBase" class="etiqueta">Digite o valor da base</label>
+                <label for="idBase" class="etiqueta">Digite o valor da base (cm)</label>
                 <input type="number" id="idBase" placeholder="Valor da base" class="campoFormulario" step="0.01">
 
-                <label for="idAltura" class="etiqueta">Digite o valor da altura</label>
+                <label for="idAltura" class="etiqueta">Digite o valor da altura (cm)</label>
                 <input type="number" id="idAltura" placeholder="Valor da Altura" class="campoFormulario" step="0.01">
 
                 <button type="button" class="botaoForm" onclick="calculaRetangulo()">Enviar</button>
@@ -59,10 +59,10 @@
             </div>
 
             <div id="retanguloTriangulo">
-                <label for="idBaseTR" class="etiqueta">Digite o valor da base</label>
+                <label for="idBaseTR" class="etiqueta">Digite o valor da base (cm)</label>
                 <input type="number" id="idBaseTR" placeholder="Valor da base" class="campoFormulario" step="0.01">
 
-                <label for="idAlturaTR" class="etiqueta">Digite o valor da altura</label>
+                <label for="idAlturaTR" class="etiqueta">Digite o valor da altura (cm)</label>
                 <input type="number" id="idAlturaTR" placeholder="Valor da Altura" class="campoFormulario" step="0.01">
 
                 <button type="button" class="botaoForm" onclick="calculaRT()">Enviar</button>
@@ -73,19 +73,19 @@
             </div>
 
 
-                <div id="te">
-                    <label for="idLado" class="etiqueta">Digite o valor do lado</label>
-                    <input type="number" id="idLado" placeholder="Valor do lado" class="campoFormulario" step="0.01">
-                    <button type="button" class="botaoForm" onclick="calculaTE()">Enviar</button>
+            <div id="te">
+                <label for="idLado" class="etiqueta">Digite o valor do lado (cm)</label>
+                <input type="number" id="idLado" placeholder="Valor do lado" class="campoFormulario" step="0.01">
+                <button type="button" class="botaoForm" onclick="calculaTE()">Enviar</button>
 
-                    <div class="saidaDeDados">
-                        <p id="idSaidaTE" class="idSaida"></p>
-                    </div>
+                <div class="saidaDeDados">
+                    <p id="idSaidaTE" class="idSaida"></p>
                 </div>
-
             </div>
+
         </div>
-        
+    </div>
+
 
     <script>
 
@@ -101,7 +101,7 @@
             let saida = document.getElementById('idSaidaCirculo')
             let valorRaio = Number(document.getElementById("idRaio").value)
 
-            saida.innerText = 'A área do círculo é ' + ((pi * (valorRaio * valorRaio)).toFixed(4))
+            saida.innerText = 'A área do círculo é ' + ((pi * (valorRaio * valorRaio)).toFixed(4)) + ' ㎠ '
 
         }
 
@@ -117,7 +117,7 @@
             let base = Number(document.getElementById("idBase").value)
             let altura = Number(document.getElementById("idAltura").value)
 
-            saida.innerText = 'A área do retângulo é ' + ((base * altura).toFixed(4))
+            saida.innerText = 'A área do retângulo é ' + ((base * altura).toFixed(4)) + ' ㎠ '
 
         }
 
@@ -133,7 +133,7 @@
             let base = Number(document.getElementById("idBaseTR").value)
             let altura = Number(document.getElementById("idAlturaTR").value)
 
-            saida.innerText = 'A área do triângulo retângulo é ' + (((base * altura) / 2).toFixed(4))
+            saida.innerText = 'A área do triângulo retângulo é ' + (((base * altura) / 2).toFixed(4)) + ' ㎠ '
 
         }
 
@@ -148,13 +148,13 @@
             let saida = document.getElementById('idSaidaTE')
             let lado = Number(document.getElementById("idLado").value)
 
-            saida.innerText = 'A área do triângulo equilátero é ' + ((((lado*lado)* Math.sqrt(3)) / 4).toFixed(4))
+            saida.innerText = 'A área do triângulo equilátero é ' + ((((lado * lado) * Math.sqrt(3)) / 4).toFixed(4)) + ' ㎠ '
 
         }
 
 
 
-        function verificaValorDaVenda() {
+        function verificaForma() {
             let circulo = document.getElementById("idCirculo").checked
             let retangulo = document.getElementById("idRetangulo").checked
             let trianguloRetangulo = document.getElementById("idTrianguloRetangulo").checked
@@ -194,7 +194,7 @@
                 }
             }
 
-       
+
 
             return false
         }

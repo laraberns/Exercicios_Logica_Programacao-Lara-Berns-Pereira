@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return verificaVelocidade()'>
+        <div class="formulario">
+            <label for="idVelocidade" class="etiqueta">Qual a velocidade do carro (Km/h)?</label>
+            <input type="number" id="idVelocidade" placeholder="Velocidade" class="campoFormulario" step="0.01"
+                required>
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+    <script>
+        function verificaVelocidade() {
+            let velocidade = Number(document.getElementById('idVelocidade').value)
+            let saida = document.getElementById('idSaida')
+            let multa = 5 * (velocidade - 80)
+
+
+            if (velocidade > 80) {
+                saida.innerText = "O usuário foi multado. A multa é igual a R$ " + multa + "."
+            } else {
+                if (velocidade > 0 && velocidade <= 80) {
+                    saida.innerText = "Velocidade normal. Usuário NÃO multado."
+                } else {
+                    saida.innerText = "Digite uma velocidade válida."
+                }
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

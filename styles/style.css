@@ -95,3 +95,7 @@ body {
 #corpo{
     display: block;
 }
+
+.campoSexo{
+  margin: 20px 0;
+}

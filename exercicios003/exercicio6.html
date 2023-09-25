@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return verificaIdade()'>
+        <div class="formulario">
+            <label for="idData" class="etiqueta">Qual a sua data de nascimento?</label>
+            <input type="date" id="idData" class="campoFormulario" required min="1900-01-01" max="2023-01-01">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+    </form>
+
+    <script>
+        function verificaIdade() {
+
+            let dataNascimento = document.getElementById('idData').value
+            let dataNascimentoDate = new Date(dataNascimento)
+            let dataAtual = new Date()
+            let diferenca = new Date(dataAtual - dataNascimentoDate)
+            let idade = Math.abs(diferenca.getUTCFullYear() - 1970);
+            let diferencaDaIdadeE18AnosMais = idade - 18
+            let diferencaDaIdadeE18AnosMenos = 18 - idade
+            let saida = document.getElementById('idSaida')
+
+            if(idade >= 18){
+                saida.innerText= "Já se passaram " + diferencaDaIdadeE18AnosMais + " anos que você se alistou."
+            } else{
+                saida.innerText= "Faltam " + diferencaDaIdadeE18AnosMenos + " anos para você se alistar."
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

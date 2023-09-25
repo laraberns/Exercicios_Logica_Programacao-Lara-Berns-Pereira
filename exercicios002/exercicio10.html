@@ -16,7 +16,7 @@
             <input type="text" id="idUser" placeholder="userId" class="campoFormulario" required>
 
             <label for="idSenha" class="etiqueta">Digite a senha:</label>
-            <input type="text" id="idSenha" placeholder="Senha" class="campoFormulario" required>
+            <input type="password" id="idSenha" placeholder="Senha" class="campoFormulario" required>
 
             <button type="submit" class="botaoForm">Enviar</button>
         </div>
@@ -36,13 +36,26 @@
             let Aluno2 = "Senha@123"
             let Aluno3 = "123Trocar"
 
+
             if ((userId == "Aluno1" && senha == Aluno1) || (userId == "Aluno2" && senha == Aluno2) || (userId == "Aluno3" && senha == Aluno3)) {
                 saida.innerText = "Acesso Permitido"
             } else {
-                if ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3)) {
-                    saida.innerText = "Senha incorreta"
+                if (saida.innerText == "Senha incorreta. Acesso bloqueado" && ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3))) {
+                    saida.innerText = "Senha incorreta. Acesso bloqueado"
                 } else {
-                    saida.innerText = "Usuário não cadastrado"
+                    if (saida.innerText == "Senha incorreta. Segunda tentativa" && ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3))) {
+                        saida.innerText = "Senha incorreta. Acesso bloqueado"
+                    } else {
+                        if (saida.innerText == "Senha incorreta. Primeira tentativa" && ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3))) {
+                            saida.innerText = "Senha incorreta. Segunda tentativa"
+                        } else {
+                            if ((userId == "Aluno1" && senha != Aluno1) || (userId == "Aluno2" && senha != Aluno2) || (userId == "Aluno3" && senha != Aluno3)) {
+                                saida.innerText = "Senha incorreta. Primeira tentativa"
+                            } else {
+                                saida.innerText = "Usuário não cadastrado"
+                            }
+                        }
+                    }
                 }
             }
 

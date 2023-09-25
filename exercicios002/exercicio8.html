@@ -35,6 +35,11 @@
                 saida.innerText = "O valor da venda é R$ " + (valorDaCompra * 1.35)
             }
 
+            
+            if (valorDaCompra <= 0) {
+                saida.innerText = "Digite um valor válido"
+            }
+
             return false
         }
     </script>

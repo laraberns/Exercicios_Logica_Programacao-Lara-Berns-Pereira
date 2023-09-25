@@ -28,7 +28,7 @@
             let valorBrutoSalario = Number(document.getElementById('idSalario').value)
             let saida = document.getElementById('idSaida')
 
-            if (valorBrutoSalario <= 600) {
+            if (valorBrutoSalario <= 600 && valorBrutoSalario > 0) {
                 saida.innerText = "O Salário Líquido é R$ " + valorBrutoSalario + "."
             } else {
                 if (valorBrutoSalario > 600 && valorBrutoSalario <= 1200) {

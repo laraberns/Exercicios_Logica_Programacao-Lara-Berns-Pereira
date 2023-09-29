@@ -28,17 +28,20 @@
 
             let dataNascimento = document.getElementById('idData').value
             let dataNascimentoDate = new Date(dataNascimento)
+
             let dataAtual = new Date()
-            let diferenca = new Date(dataAtual - dataNascimentoDate)
-            let idade = Math.abs(diferenca.getUTCFullYear() - 1970);
+
+            let idade = dataAtual.getFullYear() - dataNascimentoDate.getFullYear()
+
             let diferencaDaIdadeE18AnosMais = idade - 18
             let diferencaDaIdadeE18AnosMenos = 18 - idade
+
             let saida = document.getElementById('idSaida')
 
-            if(idade >= 18){
-                saida.innerText= "Já se passaram " + diferencaDaIdadeE18AnosMais + " anos que você se alistou."
-            } else{
-                saida.innerText= "Faltam " + diferencaDaIdadeE18AnosMenos + " anos para você se alistar."
+            if (idade >= 18) {
+                saida.innerText = "Já se passaram " + diferencaDaIdadeE18AnosMais + " anos que você se alistou."
+            } else {
+                saida.innerText = "Faltam " + diferencaDaIdadeE18AnosMenos + " anos para você se alistar."
             }
 
             return false

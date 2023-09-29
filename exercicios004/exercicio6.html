@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return contagem()'>
+        <div class="formulario">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+        function contagem() {
+
+            var saida = document.getElementById('idSaida')
+
+            var msn = ""
+            var cont = 30
+
+            while(cont >= 1){
+
+                let restoDivPor4 = cont % 4
+
+                if(restoDivPor4 == 0){
+                    msn = msn + "[" + cont + "] "
+                } else {
+                    msn = msn + cont + " "
+                }
+
+                cont--
+            }
+
+
+          saida.innerText = msn
+
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

@@ -29,15 +29,10 @@
             let ano = Number(document.getElementById('idAno').value)
             let saida = document.getElementById('idSaida')
 
-            if (ano % 4 == 0 && ano % 100 != 0) {
+            if ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
                 saida.innerText = "O ano " + ano + " é bissexto."
             } else {
-                if (ano % 100 == 0 && ano % 400 == 0) {
-                    saida.innerText = "O ano " + ano + " é bissexto."
-                } else {
-                    saida.innerText = "O ano " + ano + " não é bissexto."
-                }
-
+                saida.innerText = "O ano " + ano + " não é bissexto."
             }
 
             return false

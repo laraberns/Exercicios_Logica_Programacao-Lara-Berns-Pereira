@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return contagem()' >
+        <div class="formulario" class="form5">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+        function contagem() {
+
+            var saida = document.getElementById('idSaida')
+
+            saida.innerText = ""
+            
+            for(let cont = 1; cont <= 100; cont++){
+                if(cont % 3 == 0 || cont % 5 == 0){
+                    saida.innerText += ` ${cont} `
+                }
+            }
+
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

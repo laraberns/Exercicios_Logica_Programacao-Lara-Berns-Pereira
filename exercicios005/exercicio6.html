@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return contagem()'>
+        <div class="formulario" class="form5">
+
+            <label for="idNumber" class="etiqueta">Digite uma idade:</label>
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" min="0" step="1" required>
+
+            <button type="submit" class="botaoForm">Enviar idade</button>
+
+            <button type="button" class="botaoForm calculaMaiorMenor" onclick="calculaMedia()">Resultados</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="limpaArray()">Limpar idades</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida1" class="idSaida"></p>
+            <p id="idSaida2" class="idSaida"></p>
+            <p id="idSaida3" class="idSaida"></p>
+            <p id="idSaida4" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var array = []
+        var saida1 = document.getElementById('idSaida1')
+        var saida2 = document.getElementById('idSaida2')
+        var saida3 = document.getElementById('idSaida3')
+        var saida4 = document.getElementById('idSaida4')
+
+        var soma = 0
+        var contItemMaiorQue18 = 0
+        var contItemMenorQue5 = 0
+        var contIdadeMaior = 0
+
+        function contagem() {
+
+            let idade = Number(document.getElementById('idNumber').value)
+            let campoIdade = document.getElementById('idNumber')
+
+            array.push(idade)
+
+            campoIdade.value = ""
+
+            return false
+        }
+
+        function calculaMedia() {
+            for (let item of array) {
+                soma += item
+            }
+
+            let media = (soma / array.length).toFixed(1)
+
+            saida1.innerText = "A média das idades é " + media + " anos."
+
+            maiorQue18()
+            menorQue5()
+            maiorIdade()
+        }
+
+        function maiorQue18() {
+            for (let item of array) {
+                if (item > 18) {
+                    contItemMaiorQue18++
+                }
+            }
+
+            saida2.innerText = contItemMaiorQue18 + " idades enviadas são maiores que 18 anos."
+        }
+
+        function menorQue5() {
+            for (let item of array) {
+                if (item < 5) {
+                    contItemMenorQue5++
+                }
+            }
+
+            saida3.innerText = contItemMenorQue5 + " idades enviadas são menores que 5 anos."
+        }
+
+        function maiorIdade() {
+            for (let item of array) {
+                if (item > contIdadeMaior) {
+                    contIdadeMaior = item
+                }
+            }
+
+            saida4.innerText = contIdadeMaior + " anos é a maior idade enviada."
+
+        }
+
+        function limpaArray() {
+            location.reload();
+        }
+
+
+    </script>
+</body>
+
+</html>

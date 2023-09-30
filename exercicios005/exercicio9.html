@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return converteTemperatura()'>
+        <div class="formulario" class="form5">
+            <p class="tituloFormas"> Escolha uma unidade de medida</p>
+            <div>
+                <input type="radio" name="nmUnidade" id="idCelsius">
+                <label for="idCelsius" class="etiqueta">Celsius</label>
+
+                <input type="radio" name="nmUnidade" id="idFahrenheit">
+                <label for="idFahrenheit" class="etiqueta">Fahrenheit</label>
+
+                <input type="radio" name="nmUnidade" id="idKelvin">
+                <label for="idKelvin" class="etiqueta">Kelvin</label>
+            </div>
+            
+            <label for="idNumber" class="etiqueta temperaturaEtiqueta"> Digite uma temperatura:</label>
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" required step="0.01">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+        function converteTemperatura() {
+
+            let saida = document.getElementById('idSaida')
+            let numeroInformado = Number(document.getElementById("idNumber").value)
+
+            let celsius = document.getElementById("idCelsius").checked
+            let fahrenheit = document.getElementById("idFahrenheit").checked
+            let kelvin = document.getElementById("idKelvin").checked
+
+            let celsiusToFahrenheit = ((9*numeroInformado+160)/5 ).toFixed(2)
+            let celsiusToKelvin = (numeroInformado + 273).toFixed(2)
+
+            let fahrenheitToCelsius = ((numeroInformado - 32) / 1.8).toFixed(2)
+            let fahrenheitToKelvin = ( ((numeroInformado * 5)-160)/9 + 273).toFixed(2)
+
+            let kelvinToCelsius = (numeroInformado -273).toFixed(2)
+            let kelvinToFahrenheit = ( (((numeroInformado - 273) * 9) + 160)/5).toFixed(2)
+
+            if(celsius){
+                saida.innerText = "A temperatura em Fahrenheit é " + celsiusToFahrenheit + "°F e a temperatura em Kelvin é " + celsiusToKelvin + "°K."
+            }
+
+            if(fahrenheit){
+                saida.innerText = "A temperatura em Celsius é " + fahrenheitToCelsius + "°C e a temperatura em Kelvin é " + fahrenheitToKelvin + "°K."
+            }
+
+            if(kelvin){
+                saida.innerText = "A temperatura em Celsius é " + kelvinToCelsius + "°C e a temperatura em Fahrenheit é " + kelvinToFahrenheit + "°F."
+            }
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

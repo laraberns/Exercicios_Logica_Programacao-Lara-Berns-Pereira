@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
-:root{
+:root {
     --fonte-primaria: 'Roboto', sans-serif;
 }
 
@@ -53,49 +53,69 @@ body {
     font-weight: 500;
 }
 
-.saidaDeDados{
+.saidaDeDados {
     font-family: var(--fonte-primaria);
     padding: 10px 5px;
     font-size: 20px;
     color: red;
 }
 
-.idSaida{
+.idSaida {
     margin-bottom: 10px
 }
 
-.negrito{
+.negrito {
     font-weight: 600;
 }
 
-.titulo{
+.titulo {
     margin-bottom: 10px;
 }
 
-.radio{
+.radio {
     margin-top: 20px;
 }
 
-.tituloFormas{
+.tituloFormas {
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 500;
 }
 
-#valoresFormas{
+#valoresFormas {
     font-family: var(--fonte-primaria);
     margin-top: 50px;
 }
 
-#circulo, #retangulo, #retanguloTriangulo, #te{
+#circulo,
+#retangulo,
+#retanguloTriangulo,
+#te {
     display: none;
     flex-direction: column;
 }
 
-#corpo{
+#corpo {
     display: block;
 }
 
-.campoSexo{
-  margin: 20px 0;
+.campoSexo {
+    margin: 20px 0;
+}
+
+.calculaMaiorMenor {
+    margin-top: 50px;
+}
+
+.limpaArray:hover {
+    background-color: red;
+}
+
+.temperaturaEtiqueta{
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.botaoMoedas{
+    margin-top: 20px;
 }

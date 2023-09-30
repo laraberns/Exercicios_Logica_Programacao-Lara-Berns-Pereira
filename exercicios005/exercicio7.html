@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return contagem()'>
+        <div class="formulario" class="form5">
+
+            <label for="idNumber" class="etiqueta">Digite um número entre 1 e 10:</label>
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" min="1" max="10" step="1"
+                required>
+
+            <button type="submit" class="botaoForm">Enviar número</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciarJogo()">Reiniciar jogo</button>
+
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var numeroAleatorio = Math.ceil(Math.random() * 10)
+        console.log(numeroAleatorio)
+
+        var cont = 0
+        var saida = document.getElementById('idSaida')
+
+
+        function contagem() {
+
+            var numeroInformado = Number(document.getElementById("idNumber").value)
+            let campoNumero = document.getElementById('idNumber')
+
+            campoNumero.value = ""
+
+            if (cont < 2) {
+                if (numeroInformado == numeroAleatorio) {
+                    saida.innerText = "Você acertou o número sorteado."
+                    cont++
+                } else {
+                    if (numeroInformado < numeroAleatorio) {
+                        saida.innerText = "O número sorteado é maior que o número informado."
+                        cont++
+                    } else {
+                        saida.innerText = "O número sorteado é menor que o número informado."
+                        cont++
+                    }
+                }
+            } else {
+                if (cont = 3) {
+                    if (numeroInformado == numeroAleatorio) {
+                        saida.innerText = "Você acertou o número sorteado."
+                        cont++
+                    } else {
+                        saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio
+                        cont++
+                    }
+                } else {
+                    saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio
+                    cont++
+                }
+
+            }
+
+            return false
+        }
+
+        function reiniciarJogo() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

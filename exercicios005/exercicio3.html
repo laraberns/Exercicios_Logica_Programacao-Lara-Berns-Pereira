@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return contagem()'>
+        <div class="formulario" class="form5">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+            <p id="idSaida2" class="idSaida"></p>
+            <p id="idSaida3" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+        function contagem() {
+
+            var saida = document.getElementById('idSaida')
+            var saida2 = document.getElementById('idSaida2')
+            var saida3 = document.getElementById('idSaida3')
+
+            saida.innerText = ""
+
+            saida.innerText = "Os números sorteados foram:"
+
+            let contadorMenor5 = 0
+            let contadorDivisivel3 = 0
+
+            for (let cont = 1; cont <= 20; cont++) {
+
+                var numero = Math.floor(Math.random() * 10)
+
+                saida.innerText += ` ${numero} `
+
+                if (numero > 5) {
+                    contadorMenor5++
+                }
+
+                if (numero % 3 == 0 && numero != 0) {
+                    contadorDivisivel3++
+                }
+
+            }
+
+            saida2.innerText = contadorMenor5 + " números estão acima de 5."
+            saida3.innerText = contadorDivisivel3 + " números são divisíveis por 3."
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

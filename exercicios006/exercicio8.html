@@ -32,6 +32,7 @@
         var arrayDePosicoesDoNumero = []
         var contadorPosicoesNumero = 0
 
+        // laço de repeticao para 30 numeros aleatorios entre 1 e 15
         for (let cont = 0; cont < 30; cont++) {
             array[cont] = Math.ceil(Math.random() * 15)
         }
@@ -45,7 +46,9 @@
             arrayDePosicoesDoNumero = []
             contadorPosicoesNumero = 0
 
+            // laço de repeticao que percorre todos os itens do array de numeros aleatorios
             for (let contador = 0; contador < array.length; contador++) {
+                // se o item for igual ao numero informado, adicionar ao arrayDePosicoesDoNumero o valor da posicao do item no array principal
                 if (array[contador] == numero) {
                     arrayDePosicoesDoNumero[contadorPosicoesNumero] = contador
                     contadorPosicoesNumero++

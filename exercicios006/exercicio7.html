@@ -44,9 +44,20 @@
 
             let numero = document.getElementById("idNumber").value
 
+            // enviando numeros informados para o array e subindo o contador +1
             array[cont] = numero
             cont++
 
+            // laço for para iterar o array
+            for (let contador = 0; contador < array.length; contador++) {
+                // se o item do array for multiplo de 10, enviar para o arrayDePosicoes a posicao do multiplo de 10
+                if (array[contador] % 10 == 0) {
+                    arrayDePosicoes[contMultiplos] = contador
+                    contMultiplos++
+                }
+            }
+            
+            // limpando campo de digitacao do usuario
             document.getElementById("idNumber").value = ""
 
             return false
@@ -55,20 +66,13 @@
 
         function listaNumeros() {
 
-            for (let contador = 0; contador < array.length; contador++) {
-                if (array[contador] % 10 == 0) {
-                    arrayDePosicoes[contMultiplos] = contador
-                    contMultiplos++
-                }
-
-            }
-
+            // mostrando array inteiro na tela
             saida.innerText = array
+            // mostrando o array de posicoes dos multiplos de 10 na tela
             saida2.innerText = "Os números múltiplos de 10 foram digitados nas posições: " + arrayDePosicoes
 
-            array = []
+            // limpando array de posicoes para quando for adicionado novo numero, ele gerar um arrayDePosicoes da posicao 0 (vazio).
             arrayDePosicoes = []
-            cont = 0
             contMultiplos = 0
 
         }

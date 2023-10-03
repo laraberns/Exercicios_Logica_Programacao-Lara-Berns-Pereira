@@ -39,15 +39,18 @@
 
             let nome = document.getElementById("idNome").value
 
+            // enviando nomes informados para o array e subindo o contador +1
             array[cont] = nome
             cont++
 
+            // limpando campo de digitacao do usuario
             document.getElementById("idNome").value = ""
 
             return false
         }
 
         function listaNomes() {
+            // listar o array de forma inversa do que foi enviado
             saida.innerText = array.reverse()
         }
 

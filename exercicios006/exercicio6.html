@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return retornaVetor()'>
+        <div class="formulario" class="form5">
+
+            <label for="idNome" class="etiqueta">Digite um nome:</label>
+            <input type="text" id="idNome" placeholder="Nome" class="campoFormulario" required>
+
+            <button type="submit" class="botaoForm">Enviar nome</button>
+
+            <button type="button" class="botaoForm" onclick="listaNomes()">Listar nomes</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Limpar</button>
+
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var array = []
+        var cont = 0
+        var saida = document.getElementById('idSaida')
+
+        function retornaVetor() {
+
+            let nome = document.getElementById("idNome").value
+
+            array[cont] = nome
+            cont++
+
+            document.getElementById("idNome").value = ""
+
+            return false
+        }
+
+        function listaNomes() {
+            saida.innerText = array.reverse()
+        }
+
+        function reiniciar() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

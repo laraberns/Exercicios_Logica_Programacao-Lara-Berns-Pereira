@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return retornaVetor()'>
+        <div class="formulario" class="form5">
+
+            <button type="submit" class="botaoForm">Enviar</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+        function retornaVetor() {
+
+            let saida = document.getElementById('idSaida')
+
+            let array = []
+
+            for (let cont = 0; cont < 10; cont++) {
+                array[cont] = 5 * (cont + 1)
+            }
+
+            saida.innerText = array
+
+            return false
+        }
+    </script>
+</body>
+
+</html>

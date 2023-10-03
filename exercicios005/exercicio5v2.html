@@ -14,14 +14,15 @@
         <div class="formulario" class="form5">
 
             <label for="idNumber" class="etiqueta">Digite um preço:</label>
-            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" min="0" required step="0.01">
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" min="0" required
+                step="0.01">
 
             <button type="submit" class="botaoForm">Enviar preço</button>
 
             <button type="button" class="botaoForm calculaMaiorMenor" onclick="calculaMaiorMenor()">Calcular maior/menor
                 preço enviado</button>
 
-            <button type="button" class="botaoForm limpaArray" onclick="limpaArray()">Limpar preços</button>
+            <button type="button" class="botaoForm limpaArray" onclick="limpaNumeros()">Limpar preços</button>
         </div>
 
         <div class="saidaDeDados">
@@ -34,31 +35,37 @@
 
     <script>
 
-        var array = []
         var saida = document.getElementById('idSaida')
         var saida2 = document.getElementById('idSaida2')
         var saida3 = document.getElementById('idSaida3')
 
+        var maiorPreco = 0
+        var menorPreco = 999999999999
+
+
         function contagem() {
 
             let preco = Number(document.getElementById('idNumber').value)
-            let campoPreco = document.getElementById('idNumber')
 
-            array.push(preco)
+            if (preco > maiorPreco) {
+                maiorPreco = preco
+            }
 
-            campoPreco.value = ""
+            if (preco < menorPreco) {
+                menorPreco = preco
+            }
+
+            saida3.innerText += ` ${preco}`
 
             return false
         }
 
         function calculaMaiorMenor() {
-            saida3.innerText = "Os números enviados foram " + array
-            array = array.sort()
-            saida.innerText = "O menor número enviado é " + array[0]
-            saida2.innerText = "O maior número enviado é " + array[(array.length - 1)]
+            saida.innerText = "O menor número enviado é " + menorPreco
+            saida2.innerText = "O maior número enviado é " + maiorPreco
         }
 
-        function limpaArray() {
+        function limpaNumeros() {
             location.reload();
         }
 

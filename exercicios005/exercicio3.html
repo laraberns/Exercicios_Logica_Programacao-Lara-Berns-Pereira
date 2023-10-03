@@ -27,9 +27,9 @@
     <script>
         function contagem() {
 
-            var saida = document.getElementById('idSaida')
-            var saida2 = document.getElementById('idSaida2')
-            var saida3 = document.getElementById('idSaida3')
+            let saida = document.getElementById('idSaida')
+            let saida2 = document.getElementById('idSaida2')
+            let saida3 = document.getElementById('idSaida3')
 
             saida.innerText = ""
 
@@ -38,9 +38,10 @@
             let contadorMenor5 = 0
             let contadorDivisivel3 = 0
 
-            for (let cont = 1; cont <= 20; cont++) {
+            for (let cont = 0; cont < 20; cont++) {
 
-                var numero = Math.floor(Math.random() * 10)
+                // gerando nuemros de 0 a 9
+                let numero = Math.round(Math.random() * 10)
 
                 saida.innerText += ` ${numero} `
 

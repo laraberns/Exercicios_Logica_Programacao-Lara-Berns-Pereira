@@ -116,6 +116,6 @@ body {
     font-weight: 500;
 }
 
-.botaoMoedas{
+.botaoMoedas, .botaoParImpar {
     margin-top: 20px;
 }

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form onsubmit='return contagem()'>
+    <form onsubmit='return registrar()'>
         <div class="formulario" class="form5">
 
             <label for="idNumber" class="etiqueta">Digite uma idade:</label>
@@ -45,7 +45,7 @@
         var contItemMenorQue5 = 0
         var contIdadeMaior = 0
 
-        function contagem() {
+        function registrar() {
 
             let idade = Number(document.getElementById('idNumber').value)
             let campoIdade = document.getElementById('idNumber')

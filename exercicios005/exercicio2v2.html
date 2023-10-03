@@ -33,39 +33,29 @@
             let saida = document.getElementById('idSaida')
 
             saida.innerText = ""
+            let isPrimo
 
-            let arrayNumeroNaoPrimo = []
-            let arrayIntervaloVIaVF = []
 
-            // pegando numeros do numeroInicial até o numeroFinal e colocando dentro do arrayIntervaloVIaVF
-            for (let contIntervalo = numero1; contIntervalo <= numero2; contIntervalo++) {
+            // gerando numeros do numero1 ate o numero2
+            for (let num = numero1; num <= numero2; num++) {
+                isPrimo = true
+                // gerando numeros do 2 ate o numero do contador num
+                for (let num2 = 2; num2 < num; num2++) {
 
-                if (contIntervalo != 1) {
-                    arrayIntervaloVIaVF.push(contIntervalo)
-                }
-            }
-
-            // loop de numeros de 2 até o numeroFinal
-            for (let cont = 2; cont <= numero2; cont++) {
-                // loop de numeros do numeroInicial até o numeroFinal
-                for (let contIntervalo = numero1; contIntervalo <= numero2; contIntervalo++) {
-                    // colocando numeros NAO primos dentro do arrayNumeroNaoPrimo
-                    if (contIntervalo % cont == 0 && cont != contIntervalo) {
-                        arrayNumeroNaoPrimo.push(contIntervalo)
+                    // testando se num é divisivel por num2, entao num2 não é primo
+                    if (num % num2 == 0) {
+                        isPrimo = false
                     }
-
                 }
+
+                if (isPrimo) {
+                    if (num != 1) {
+                        saida.innerText += ` ${num}`
+                    }
+                }
+
             }
-
-            //verificando quais numeros do array de numeros de VI a VF NÃO estão no array de arrayNumeroNaoPrimo
-            const diferenca =
-                arrayIntervaloVIaVF.filter((elemento) => !arrayNumeroNaoPrimo.includes(elemento));
-
-            saida.innerText = diferenca
 
             return false
         }
     </script>
-</body>
-
-</html>

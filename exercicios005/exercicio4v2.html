@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 1</title>
+    <title>Exercício 4</title>
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -25,15 +25,24 @@
     <script>
         function contagem() {
 
-            let saida = document.getElementById('idSaida')
+            // 0 1 1 2 3 5 8 13 21...
 
-            saida.innerText = ""
+            var saida = document.getElementById('idSaida')
 
-            // verificando quais numeros sao multiplos de 3 OU 5
-            for (let cont = 1; cont <= 100; cont++) {
-                if (cont % 3 == 0 || cont % 5 == 0) {
-                    saida.innerText += ` ${cont} `
-                }
+            let numFibo = 0
+            let elementoAnterior = 0
+            let elementoSequencia = 1
+            let elementoProximo
+
+            saida.innerText = "0"
+
+            while (numFibo < 9) {
+                saida.innerText += ` ${elementoSequencia} `
+                elementoProximo = elementoAnterior + elementoSequencia
+                elementoAnterior = elementoSequencia
+                elementoSequencia = elementoProximo
+
+                numFibo++
             }
 
             return false

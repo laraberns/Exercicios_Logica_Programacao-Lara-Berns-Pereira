@@ -31,20 +31,23 @@
 
     <script>
 
+        // sortear um numero
         var numeroAleatorio = Math.ceil(Math.random() * 10)
-        console.log(numeroAleatorio)
 
+        // contador da quantidade de vezes testada
         var cont = 0
-        var saida = document.getElementById('idSaida')
 
+        var saida = document.getElementById('idSaida')
 
         function contagem() {
 
-            var numeroInformado = Number(document.getElementById("idNumber").value)
-            let campoNumero = document.getElementById('idNumber')
+            let numeroInformado = Number(document.getElementById("idNumber").value)
 
+            // limpar campo de digitacao quando enviado o numero
+            let campoNumero = document.getElementById('idNumber')
             campoNumero.value = ""
 
+            // contador menor que 2 - referente as duas primeiras tentativas
             if (cont < 2) {
                 if (numeroInformado == numeroAleatorio) {
                     saida.innerText = "Você acertou o número sorteado."
@@ -59,19 +62,21 @@
                     }
                 }
             } else {
-                if (cont = 3) {
+                // contador igual a 2 - referente à terceira tentativa (última)
+                if (cont == 2) {
                     if (numeroInformado == numeroAleatorio) {
                         saida.innerText = "Você acertou o número sorteado."
                         cont++
                     } else {
-                        saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio
+                        saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio + "."
                         cont++
                     }
-                } else {
-                    saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio
+                }
+                // contador maior que 2 - jogador já perdeu o jogo ):
+                else {
+                    saida.innerText = "Você perdeu o jogo. O número sorteado era " + numeroAleatorio + "."
                     cont++
                 }
-
             }
 
             return false
@@ -80,6 +85,7 @@
         function reiniciarJogo() {
             location.reload();
         }
+
     </script>
 </body>
 

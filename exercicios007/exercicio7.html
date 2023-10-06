@@ -34,13 +34,13 @@
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 1</h2>
 
             <label for="idResposta1J1" class="etiqueta" id="labelidResposta1J1"></label>
-            <input type="text" id="idResposta1J1" class="campoFormulario" required>
+            <input type="text" id="idResposta1J1" class="campoFormulario">
 
             <label for="idResposta2J1" class="etiqueta" id="labelidResposta2J1"></label>
-            <input type="text" id="idResposta2J1" class="campoFormulario" required>
+            <input type="text" id="idResposta2J1" class="campoFormulario">
 
             <label for="idResposta3J1" class="etiqueta" id="labelidResposta3J1"></label>
-            <input type="text" id="idResposta3J1" class="campoFormulario" required>
+            <input type="text" id="idResposta3J1" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
 
@@ -52,13 +52,13 @@
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 2</h2>
 
             <label for="idResposta1J2" class="etiqueta" id="labelidResposta1J2"></label>
-            <input type="text" id="idResposta1J2" class="campoFormulario" required>
+            <input type="text" id="idResposta1J2" class="campoFormulario">
 
             <label for="idResposta2J2" class="etiqueta" id="labelidResposta2J2"></label>
-            <input type="text" id="idResposta2J2" class="campoFormulario" required>
+            <input type="text" id="idResposta2J2" class="campoFormulario">
 
             <label for="idResposta3J2" class="etiqueta" id="labelidResposta3J2"></label>
-            <input type="text" id="idResposta3J2" class="campoFormulario" required>
+            <input type="text" id="idResposta3J2" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
 
@@ -70,13 +70,13 @@
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 3</h2>
 
             <label for="idResposta1J3" class="etiqueta" id="labelidResposta1J3"></label>
-            <input type="text" id="idResposta1J3" class="campoFormulario" required>
+            <input type="text" id="idResposta1J3" class="campoFormulario">
 
             <label for="idResposta2J3" class="etiqueta" id="labelidResposta2J3"></label>
-            <input type="text" id="idResposta2J3" class="campoFormulario" required>
+            <input type="text" id="idResposta2J3" class="campoFormulario">
 
             <label for="idResposta3J3" class="etiqueta" id="labelidResposta3J3"></label>
-            <input type="text" id="idResposta3J3" class="campoFormulario" required>
+            <input type="text" id="idResposta3J3" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
 
@@ -88,13 +88,13 @@
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 4</h2>
 
             <label for="idResposta1J4" class="etiqueta" id="labelidResposta1J4"></label>
-            <input type="text" id="idResposta1J4" class="campoFormulario" required>
+            <input type="text" id="idResposta1J4" class="campoFormulario">
 
             <label for="idResposta2J4" class="etiqueta" id="labelidResposta2J4"></label>
-            <input type="text" id="idResposta2J4" class="campoFormulario" required>
+            <input type="text" id="idResposta2J4" class="campoFormulario">
 
             <label for="idResposta3J4" class="etiqueta" id="labelidResposta3J4"></label>
-            <input type="text" id="idResposta3J4" class="campoFormulario" required>
+            <input type="text" id="idResposta3J4" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
 
@@ -398,20 +398,49 @@
             // salvar o nome do jogador de maiorNota no arrayMaiorNota
             let arrayMaiorNota = []
 
-            if (qtdRespostasCertasJ1 == maiorNota) {
-                arrayMaiorNota.push("Jogador 1")
+            // salvar o nome do jogador de maiorNota no arrayMaiorNota - 2 jogadores
+            if (contJogadores == 2) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 1")
+                }
+
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 2")
+                }
             }
 
-            if (qtdRespostasCertasJ2 == maiorNota) {
-                arrayMaiorNota.push("Jogador 2")
+            // salvar o nome do jogador de maiorNota no arrayMaiorNota - 3 jogadores
+            if (contJogadores == 3) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 1")
+                }
+
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 2")
+                }
+
+                if (qtdRespostasCertasJ3 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 3")
+                }
             }
 
-            if (qtdRespostasCertasJ3 == maiorNota) {
-                arrayMaiorNota.push("Jogador 3")
-            }
+            // salvar o nome do jogador de maiorNota no arrayMaiorNota - 4 jogadores
+            if (contJogadores == 4) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 1")
+                }
 
-            if (qtdRespostasCertasJ4 == maiorNota) {
-                arrayMaiorNota.push("Jogador 4")
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 2")
+                }
+
+                if (qtdRespostasCertasJ3 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 3")
+                }
+
+                if (qtdRespostasCertasJ3 == maiorNota) {
+                    arrayMaiorNota.push("Jogador 4")
+                }
             }
 
             let idVencedor = document.getElementById("idVencedor")
@@ -419,80 +448,119 @@
             // exibir o nome do jogador de maiorNota
             idVencedor.value = arrayMaiorNota
 
+            // verificando ordem dos jogadores (decrescente)
 
-            // ordenar array com qtd de respostas de cada jogador para ordem crescente
-            let arrayRespostasDecrescente = arrayRespostas.sort((a, b) => b - a)
 
-            let arrayOrdemNomes = []
+            //array para ordenar posicoes dos jogadores
+            var arrayRespostasOrdenadoDecrescente = arrayRespostas.sort((a, b) => (b - a))
+            let arrayOrdemJogadores = []
 
-            // verificando se a qtdRespostasCertasJ1 está em qual posição do arrayRespostasDecrescente e enviando o resultado para o arrayOrdemNomes
-            if (qtdRespostasCertasJ1 == arrayRespostasDecrescente[0]) {
-                arrayOrdemNomes.push("Posição 1 - Jogador 1")
-            } else {
-                if (qtdRespostasCertasJ1 == arrayRespostasDecrescente[1]) {
-                    arrayOrdemNomes.push("Posição 2 - Jogador 1")
+            if (contJogadores == 2) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
                 }
-                else {
-                    if (qtdRespostasCertasJ1 == arrayRespostasDecrescente[2]) {
-                        arrayOrdemNomes.push("Posição 3 - Jogador 1")
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
+                }
+                if (qtdRespostasCertasJ1 != maiorNota) {
+                    arrayOrdemJogadores.push("Posição 2 - Jogador 1")
+                }
+                if (qtdRespostasCertasJ2 != maiorNota) {
+                    arrayOrdemJogadores.push("Posição 2 - Jogador 2")
+                }
+            }
+
+            if (contJogadores == 3) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
+                } else {
+                    if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 1")
                     } else {
-                        arrayOrdemNomes.push("Posição 4 - Jogador 1")
+                        arrayOrdemJogadores.push("Posição 3 - Jogador 1")
+                    }
+                }
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
+                } else {
+                    if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 2")
+                    } else {
+                        arrayOrdemJogadores.push("Posição 3 - Jogador 2")
+                    }
+                }
+                if (qtdRespostasCertasJ3 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 3")
+                } else {
+                    if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 3")
+                    } else {
+                        arrayOrdemJogadores.push("Posição 3 - Jogador 3")
                     }
                 }
             }
 
-            // verificando se a qtdRespostasCertasJ2 está em qual posição do arrayRespostasDecrescente e enviando o resultado para o arrayOrdemNomes
-            if (qtdRespostasCertasJ2 == arrayRespostasDecrescente[0]) {
-                arrayOrdemNomes.push("Posição 1 - Jogador 2")
-            } else {
-                if (qtdRespostasCertasJ2 == arrayRespostasDecrescente[1]) {
-                    arrayOrdemNomes.push("Posição 2 - Jogador 2")
-                }
-                else {
-                    if (qtdRespostasCertasJ2 == arrayRespostasDecrescente[2]) {
-                        arrayOrdemNomes.push("Posição 3 - Jogador 2")
+            if (contJogadores == 4) {
+                if (qtdRespostasCertasJ1 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
+                } else {
+                    if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 1")
                     } else {
-                        arrayOrdemNomes.push("Posição 4 - Jogador 2")
+                        if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[2]) {
+                            arrayOrdemJogadores.push("Posição 3 - Jogador 1")
+                        } else {
+                            arrayOrdemJogadores.push("Posição 4 - Jogador 1")
+                        }
+                    }
+                }
+                if (qtdRespostasCertasJ2 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
+                } else {
+                    if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 2")
+                    } else {
+                        if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[2]) {
+                            arrayOrdemJogadores.push("Posição 3 - Jogador 2")
+                        } else {
+                            arrayOrdemJogadores.push("Posição 4 - Jogador 2")
+                        }
+                    }
+                }
+                if (qtdRespostasCertasJ3 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 3")
+                } else {
+                    if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 3")
+                    } else {
+                        if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[2]) {
+                            arrayOrdemJogadores.push("Posição 3 - Jogador 3")
+                        } else {
+                            arrayOrdemJogadores.push("Posição 4 - Jogador 3")
+                        }
+                    }
+                }
+                if (qtdRespostasCertasJ4 == maiorNota) {
+                    arrayOrdemJogadores.push("Posição 1 - Jogador 4")
+                } else {
+                    if (qtdRespostasCertasJ4 == arrayRespostasOrdenadoDecrescente[1]) {
+                        arrayOrdemJogadores.push("Posição 2 - Jogador 4")
+                    } else {
+                        if (qtdRespostasCertasJ4 == arrayRespostasOrdenadoDecrescente[2]) {
+                            arrayOrdemJogadores.push("Posição 3 - Jogador 4")
+                        } else {
+                            arrayOrdemJogadores.push("Posição 4 - Jogador 4")
+                        }
                     }
                 }
             }
 
-            // verificando se a qtdRespostasCertasJ3 está em qual posição do arrayRespostasDecrescente e enviando o resultado para o arrayOrdemNomes
-            if (qtdRespostasCertasJ3 == arrayRespostasDecrescente[0]) {
-                arrayOrdemNomes.push("Posição 1 - Jogador 3")
-            } else {
-                if (qtdRespostasCertasJ3 == arrayRespostasDecrescente[1]) {
-                    arrayOrdemNomes.push("Posição 2 - Jogador 3")
-                }
-                else {
-                    if (qtdRespostasCertasJ3 == arrayRespostasDecrescente[2]) {
-                        arrayOrdemNomes.push("Posição 3 - Jogador 3")
-                    } else {
-                        arrayOrdemNomes.push("Posição 4 - Jogador 3")
-                    }
-                }
-            }
+            let ordemJogadores = document.getElementById('idOrdemJogadores')
 
-            // verificando se a qtdRespostasCertasJ4 está em qual posição do arrayRespostasDecrescente e enviando o resultado para o arrayOrdemNomes
-            if (qtdRespostasCertasJ4 == arrayRespostasDecrescente[0]) {
-                arrayOrdemNomes.push("Posição 1 - Jogador 4")
-            } else {
-                if (qtdRespostasCertasJ4 == arrayRespostasDecrescente[1]) {
-                    arrayOrdemNomes.push("Posição 2 - Jogador 4")
-                }
-                else {
-                    if (qtdRespostasCertasJ4 == arrayRespostasDecrescente[2]) {
-                        arrayOrdemNomes.push("Posição 3 - Jogador 4")
-                    } else {
-                        arrayOrdemNomes.push("Posição 4 - Jogador 4")
-                    }
-                }
-            }
+            // exibir o arrayOrdemJogadores
+            ordemJogadores.value = arrayOrdemJogadores
 
-            let idOrdemJogadores = document.getElementById("idOrdemJogadores")
 
-            // exibir a ordem dos jogadores
-            idOrdemJogadores.value = arrayOrdemNomes.reverse()
 
         }
 

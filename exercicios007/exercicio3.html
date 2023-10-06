@@ -11,7 +11,7 @@
 
 <body>
     <form onsubmit='return salvaDadosNosVetores()'>
-        <div class="formulario" >
+        <div class="formulario">
             <h2 class="etiqueta nomesIdadesTitulo"> Envie os dados de 5 funcionários</h2>
 
             <label for="idNome" class="etiqueta">Digite um nome:</label>
@@ -47,11 +47,8 @@
     <script>
 
         var arrayNomes = []
-        var contNomes = 0
         var arraySexo = []
-        var contSexo = 0
         var arraySalario = []
-        var contSalario = 0
 
         var saida = document.getElementById('idSaida')
         var botaoEnviar = document.getElementById('idBotaoEnviar')
@@ -64,14 +61,14 @@
             let masculino = document.getElementById("idMasculino").checked
             let salario = Number(document.getElementById("idSalario").value)
 
-            // enviando nomes informados para o arrayNome e subindo o contNomes +1
-            arrayNomes[contNomes] = nome
-            contNomes++
+            // enviando nomes informados para o arrayNome
+            arrayNomes.push(nome)
 
-            // enviando salario informados para o arraySalario e subindo o contSalario +1
-            arraySalario[contSalario] = salario
-            contSalario++
 
+            // enviando salario informados para o arraySalario 
+            arraySalario.push(salario)
+
+            // enviando sexos informados para o arraySexo
             if (feminino) {
                 arraySexo.push("Feminino")
             } else {
@@ -79,7 +76,7 @@
             }
 
             // desaparecer botao de envio depois de 5 info enviadas
-            if (contNomes > 4) {
+            if (arrayNomes.length >= 5) {
                 botaoEnviar.style.visibility = 'hidden';
             }
 

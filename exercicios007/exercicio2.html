@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return salvaDadosNosVetores()'>
+        <div class="formulario" >
+            <h2 class="etiqueta nomesIdadesTitulo"> Envie 9 nomes/idades </h2>
+
+            <label for="idNome" class="etiqueta">Digite um nome:</label>
+            <input type="text" id="idNome" placeholder="Nome" class="campoFormulario" required>
+
+            <label for="idIdade" class="etiqueta">Digite uma idade:</label>
+            <input type="tnumber" id="idIdade" placeholder="Idade" class="campoFormulario" required min="0" max="120">
+
+            <button type="submit" class="botaoForm" id="idBotaoEnviar">Enviar informações</button>
+
+            <button type="button" class="botaoForm" onclick="listaMenoresDeIdade()">Listar menores de idade</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Limpar</button>
+
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var arrayNomes = []
+        var contNomes = 0
+        var arrayIdades = []
+        var contIdades = 0
+
+        var saida = document.getElementById('idSaida')
+        var botaoEnviar = document.getElementById('idBotaoEnviar')
+
+        function salvaDadosNosVetores() {
+
+            let nome = document.getElementById("idNome").value
+            let idade = Number(document.getElementById("idIdade").value)
+
+            // enviando nomes informados para o arrayNome e subindo o contNomes +1
+            arrayNomes[contNomes] = nome
+            contNomes++
+
+            // enviando idades informados para o arrayIdades e subindo o contIdades +1
+            arrayIdades[contIdades] = idade
+            contIdades++
+
+            // desaparecer botao de envio depois de 9 info enviadas
+            if(contNomes > 8){
+                botaoEnviar.style.visibility = 'hidden';
+            }
+            
+            // limpando campo de digitacao do usuario
+            document.getElementById("idNome").value = ""
+            document.getElementById("idIdade").value = ""
+
+            return false
+        }
+
+
+        function listaMenoresDeIdade() {
+
+            let arrayMenoresDeIdade = []
+
+            // iterar cada valor do arrayIdades e verificar quais itens são menores que 18. Se menor que 18, enviar informações para o arrayMenoresDeIdade
+            for (let contador = 0; contador < arrayIdades.length; contador++) {
+                if(arrayIdades[contador] < 18){
+                    arrayMenoresDeIdade.push(` ${arrayNomes[contador]} - ${arrayIdades[contador]}`)
+                }   
+            }
+
+            // listar arrayMenoresDeIdade
+            saida.innerText = "Segue a lista das pessoas menores de idade: " + arrayMenoresDeIdade
+        }
+
+        function reiniciar() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -116,6 +116,23 @@ body {
     font-weight: 500;
 }
 
-.botaoMoedas, .botaoParImpar {
+.botaoMoedas, .botaoParImpar, .campoSalario, .campoJogadoresSelecionar {
     margin-top: 20px;
+}
+
+.nomesIdadesTitulo{
+    margin-bottom: 20px;
+    font-weight: 500; 
+}
+
+#idResultados .campoFormulario{
+    width: 70vw;
+}
+
+#formularioResultados .campoFormulario{
+    width: 70vw;
+}
+
+#formularioJ1, #formularioJ2,#formularioJ3,#formularioJ4{
+   padding-right: 30px;
 }

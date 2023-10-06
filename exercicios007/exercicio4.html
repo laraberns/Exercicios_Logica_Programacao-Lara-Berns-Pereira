@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return calculaTempDia()'>
+        <div class="formulario" >
+
+            <label for="idDia" class="etiqueta">Digite uma dia:</label>
+            <input type="tnumber" id="idDia" placeholder="Dia" class="campoFormulario" required min="1" max="30">
+
+            <button type="submit" class="botaoForm">Mostrar temperatura do dia</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Reiniciar programa</button>
+        </div>
+
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+            <p id="idSaida2" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var arrayNumeros = []
+        var contNumeros = 0
+        var media = 0
+
+        for (let cont = 0; cont < 30; cont++) {
+
+            // gerando numeros de 0 a 40
+            let numero = Math.round(Math.random() * 40)
+
+            // enviando numero para o arrayNumeros
+            arrayNumeros.push(numero)
+
+        }
+
+        console.log(arrayNumeros)
+        //executando funcao calculaMedia
+        calculaMedia()
+
+        function calculaMedia() {
+
+            let saida2 = document.getElementById('idSaida2')
+
+            let somaNumeros = 0
+
+            // iterando arrayNumeros e somando valores na let somaNumeros
+            for (let contador = 0; contador < arrayNumeros.length; contador++) {
+                somaNumeros += arrayNumeros[contador]
+            }
+
+            media = Number((somaNumeros / arrayNumeros.length).toFixed(2))
+        }
+
+        function reiniciar() {
+            location.reload();
+        }
+
+        function calculaTempDia() {
+
+            let numero = Number(document.getElementById('idDia').value)
+            let tempDia = 0
+            let saida = document.getElementById('idSaida')
+
+            // iterando arrayNumeros e verificando se o numero informado é igual ao contador + 1, se for, salvar o item respectivo do arrayNumeros na let tempDia
+            for (let contador = 0; contador < arrayNumeros.length; contador++) {
+                if (numero == (contador + 1)) {
+                    tempDia = arrayNumeros[contador]
+                }
+            }
+
+            // mostrando temperatura do dia e se ela é maior que a média
+            if(tempDia > media){
+                saida.innerText = `A temperatura do dia é ${tempDia}°C. A temperatura do dia é maior que a média (${media}°C).`
+            } else{
+                saida.innerText = `A temperatura do dia é ${tempDia}°C. A temperatura do dia é menor que a média (${media}°C).`
+            }
+
+            return false
+        }
+
+    </script>
+</body>
+
+</html>

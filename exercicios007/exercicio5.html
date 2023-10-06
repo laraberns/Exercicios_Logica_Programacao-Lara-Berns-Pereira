@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return enviarNumero()'>
+        <div class="formulario" >
+
+            <label for="idNumber" class="etiqueta">Digite um número:</label>
+            <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" required>
+
+            <button type="submit" class="botaoForm" id="idBotaoEnviar">Enviar número</button>
+
+            <button type="button" class="botaoForm" onclick="listaCrescente()">Listar números em ordem
+                crescente</button>
+
+            <button type="button" class="botaoForm" onclick="listaDecrescente()">Listar números em ordem
+                decrescente</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Reiniciar programa</button>
+
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var array = []
+        var cont = 0
+        var saida = document.getElementById('idSaida')
+        var saida2 = document.getElementById('idSaida2')
+        var saida3 = document.getElementById('idSaida3')
+        var saida4 = document.getElementById('idSaida4')
+
+        function enviarNumero() {
+
+            let numero = Number(document.getElementById("idNumber").value)
+            let botaoEnviar = document.getElementById("idBotaoEnviar")
+
+            // enviando numeros informados para o array e subindo o cont +1
+            array.push(numero)
+            cont++
+
+            // limpando campo de digitacao do usuario
+            document.getElementById("idNumber").value = ""
+
+            // desaparecer botao de envio depois de 10 números enviados
+            if (cont > 9) {
+                botaoEnviar.style.visibility = 'hidden';
+            }
+
+            return false
+
+        }
+
+        function listaCrescente() {
+            let arrayCrescente = array.sort((a, b) => a - b)
+
+            saida.innerText = arrayCrescente
+        }
+
+        function listaDecrescente() {
+            let arrayDescrescente = array.sort((a, b) => b - a)
+
+            saida.innerText = arrayDescrescente
+        }
+
+
+        function reiniciar() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

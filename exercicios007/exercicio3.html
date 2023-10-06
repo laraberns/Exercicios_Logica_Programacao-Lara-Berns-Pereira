@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <form onsubmit='return salvaDadosNosVetores()'>
+        <div class="formulario" >
+            <h2 class="etiqueta nomesIdadesTitulo"> Envie os dados de 5 funcionários</h2>
+
+            <label for="idNome" class="etiqueta">Digite um nome:</label>
+            <input type="text" id="idNome" placeholder="Nome" class="campoFormulario" required>
+
+            <div>
+                <input type="radio" name="nmSexo" id="idFeminino" required>
+                <label for="idFeminino" class="etiqueta">Feminino</label>
+
+                <input type="radio" name="nmSexo" id="idMasculino" required>
+                <label for="idMasculino" class="etiqueta">Masculino</label>
+            </div>
+
+            <label for="idSalario" class="etiqueta campoSalario">Digite o salário:</label>
+            <input type="number" id="idSalario" placeholder="Salário" class="campoFormulario" required step="0.01"
+                min="0">
+
+
+            <button type="submit" class="botaoForm" id="idBotaoEnviar">Enviar informações</button>
+
+            <button type="button" class="botaoForm" onclick="listaMulheres5000()">Filtrar Mulheres que ganham mais de R$
+                5000.00</button>
+
+            <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Limpar</button>
+
+        </div>
+        <div class="saidaDeDados">
+            <p id="idSaida" class="idSaida"></p>
+        </div>
+
+    </form>
+
+    <script>
+
+        var arrayNomes = []
+        var contNomes = 0
+        var arraySexo = []
+        var contSexo = 0
+        var arraySalario = []
+        var contSalario = 0
+
+        var saida = document.getElementById('idSaida')
+        var botaoEnviar = document.getElementById('idBotaoEnviar')
+
+
+        function salvaDadosNosVetores() {
+
+            let nome = document.getElementById("idNome").value
+            let feminino = document.getElementById("idFeminino").checked
+            let masculino = document.getElementById("idMasculino").checked
+            let salario = Number(document.getElementById("idSalario").value)
+
+            // enviando nomes informados para o arrayNome e subindo o contNomes +1
+            arrayNomes[contNomes] = nome
+            contNomes++
+
+            // enviando salario informados para o arraySalario e subindo o contSalario +1
+            arraySalario[contSalario] = salario
+            contSalario++
+
+            if (feminino) {
+                arraySexo.push("Feminino")
+            } else {
+                arraySexo.push("Masculino")
+            }
+
+            // desaparecer botao de envio depois de 5 info enviadas
+            if (contNomes > 4) {
+                botaoEnviar.style.visibility = 'hidden';
+            }
+
+            // limpando campo de digitacao do usuario
+            document.getElementById("idNome").value = ""
+            document.getElementById("idSalario").value = ""
+
+            return false
+        }
+
+
+        function listaMulheres5000() {
+            let feminino = document.getElementById("idFeminino").checked
+            let salario = Number(document.getElementById("idSalario").value)
+
+            let arrayMulheres5000 = []
+
+            // iterar cada valor do arrayNomes e verificar quais itens são do sexo 'Feminino' e salário > 5000. Se true, enviar informações para o arrayMulheres5000
+            for (let contador = 0; contador < arrayNomes.length; contador++) {
+                if (arraySalario[contador] > 5000 && arraySexo[contador] == "Feminino") {
+                    arrayMulheres5000.push(` ${arrayNomes[contador]} - R$ ${arraySalario[contador]}`)
+                }
+            }
+
+            // listar arrayMulheres5000
+            saida.innerText = "Segue a lista das funcionárias que ganham mais de R$ 5000.00: " + arrayMulheres5000
+        }
+
+        function reiniciar() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

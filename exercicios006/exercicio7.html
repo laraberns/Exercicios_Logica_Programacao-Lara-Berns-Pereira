@@ -11,7 +11,7 @@
 
 <body>
     <form onsubmit='return salvaNumeroNoVetor()'>
-        <div class="formulario" >
+        <div class="formulario">
 
             <label for="idNome" class="etiqueta">Digite um número:</label>
             <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" required>
@@ -33,30 +33,17 @@
     <script>
 
         var array = []
-        var cont = 0
         var saida = document.getElementById('idSaida')
         var saida2 = document.getElementById('idSaida2')
-
         var arrayDePosicoes = []
-        var contMultiplos = 0
 
         function salvaNumeroNoVetor() {
 
-            let numero = document.getElementById("idNumber").value
+            let numero = Number(document.getElementById("idNumber").value)
 
-            // enviando numeros informados para o array e subindo o contador +1
-            array[cont] = numero
-            cont++
+            // enviando numeros informados para o array
+            array.push(numero)
 
-            // laço for para iterar o array
-            for (let contador = 0; contador < array.length; contador++) {
-                // se o item do array for multiplo de 10, enviar para o arrayDePosicoes a posicao do multiplo de 10
-                if (array[contador] % 10 == 0) {
-                    arrayDePosicoes[contMultiplos] = contador
-                    contMultiplos++
-                }
-            }
-            
             // limpando campo de digitacao do usuario
             document.getElementById("idNumber").value = ""
 
@@ -65,6 +52,14 @@
 
 
         function listaNumeros() {
+
+            // laço for para iterar o array
+            for (let contador = 0; contador < array.length; contador++) {
+                // se o item do array for multiplo de 10, enviar para o arrayDePosicoes a posicao do multiplo de 10
+                if (array[contador] % 10 == 0) {
+                    arrayDePosicoes.push(contador)
+                }
+            }
 
             // mostrando array inteiro na tela
             saida.innerText = array

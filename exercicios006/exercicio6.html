@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <form onsubmit='return retornaVetor()'>
-        <div class="formulario" >
+    <form onsubmit='return salvaNomes()'>
+        <div class="formulario">
 
             <label for="idNome" class="etiqueta">Digite um nome:</label>
             <input type="text" id="idNome" placeholder="Nome" class="campoFormulario" required>
@@ -32,16 +32,13 @@
     <script>
 
         var array = []
-        var cont = 0
-        var saida = document.getElementById('idSaida')
 
-        function retornaVetor() {
+        function salvaNomes() {
 
             let nome = document.getElementById("idNome").value
 
-            // enviando nomes informados para o array e subindo o contador +1
-            array[cont] = nome
-            cont++
+            // enviando nomes informados para o array
+            array.push(nome)
 
             // limpando campo de digitacao do usuario
             document.getElementById("idNome").value = ""
@@ -50,6 +47,9 @@
         }
 
         function listaNomes() {
+
+            let saida = document.getElementById('idSaida')
+
             // listar o array de forma inversa do que foi enviado
             saida.innerText = array.reverse()
         }

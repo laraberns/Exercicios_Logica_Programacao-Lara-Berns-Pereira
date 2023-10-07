@@ -83,15 +83,10 @@
     <script>
 
         var arrayNome = []
-        var contNome = 0
         var arrayEndereco = []
-        var contEndereco = 0
         var arrayNomeMae = []
-        var contNomeMae = 0
         var arrayNomePai = []
-        var contNomePai = 0
         var arrayTelefone = []
-        var contTelefone = 0
 
         var arrayNotasAluno = []
         var contNotas = 0
@@ -113,21 +108,15 @@
             let nomePai = document.getElementById("idNomePai").value
             let telefone = document.getElementById("idTelefone").value
 
-            // enviando dados informados para os arrays e subindo os conts +1
+            // enviando dados informados para os arrays 
             arrayNome.push(nome)
-            contNome++
             arrayEndereco.push(endereco)
-            contEndereco++
             arrayNomeMae.push(nomeMae)
-            contNomeMae++
             arrayNomePai.push(nomePai)
-            contNomePai++
             arrayTelefone.push(telefone)
-            contTelefone++
 
             // ocultando formulario de dados depois que enviado e aparecendo formulario de notas
             formularioDadosCadastro.style.display = 'none';
-            formularioResultados.style.display = 'none';
             formularioNotas.style.display = 'flex';
 
             // limpando campo de digitacao do usuario
@@ -149,9 +138,6 @@
 
             // enviando dados informados para os arrays e subindo os conts +1
             arrayNotasAluno.push(nota1, nota2, nota3, nota4)
-
-            // ocultando formulario de notas
-            formularioNotas.style.display = 'none';
 
             //consultar status da media do aluno
             let media = (nota1 + nota2 + nota3 + nota4) / 4

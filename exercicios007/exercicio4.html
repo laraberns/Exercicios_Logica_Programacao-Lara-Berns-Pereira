@@ -11,7 +11,7 @@
 
 <body>
     <form onsubmit='return calculaTempDia()'>
-        <div class="formulario" >
+        <div class="formulario">
 
             <label for="idDia" class="etiqueta">Digite uma dia:</label>
             <input type="tnumber" id="idDia" placeholder="Dia" class="campoFormulario" required min="1" max="30">
@@ -31,7 +31,6 @@
     <script>
 
         var arrayNumeros = []
-        var contNumeros = 0
         var media = 0
 
         for (let cont = 0; cont < 30; cont++) {
@@ -44,13 +43,7 @@
 
         }
 
-        console.log(arrayNumeros)
-        //executando funcao calculaMedia
-        calculaMedia()
-
         function calculaMedia() {
-
-            let saida2 = document.getElementById('idSaida2')
 
             let somaNumeros = 0
 
@@ -62,11 +55,10 @@
             media = Number((somaNumeros / arrayNumeros.length).toFixed(2))
         }
 
-        function reiniciar() {
-            location.reload();
-        }
-
         function calculaTempDia() {
+
+            //executando funcao calculaMedia
+            calculaMedia()
 
             let numero = Number(document.getElementById('idDia').value)
             let tempDia = 0
@@ -80,13 +72,17 @@
             }
 
             // mostrando temperatura do dia e se ela é maior que a média
-            if(tempDia > media){
+            if (tempDia > media) {
                 saida.innerText = `A temperatura do dia é ${tempDia}°C. A temperatura do dia é maior que a média (${media}°C).`
-            } else{
+            } else {
                 saida.innerText = `A temperatura do dia é ${tempDia}°C. A temperatura do dia é menor que a média (${media}°C).`
             }
 
             return false
+        }
+
+        function reiniciar() {
+            location.reload();
         }
 
     </script>

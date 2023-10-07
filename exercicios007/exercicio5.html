@@ -11,7 +11,7 @@
 
 <body>
     <form onsubmit='return enviarNumero()'>
-        <div class="formulario" >
+        <div class="formulario">
 
             <label for="idNumber" class="etiqueta">Digite um número:</label>
             <input type="number" id="idNumber" placeholder="Número" class="campoFormulario" required>
@@ -36,26 +36,21 @@
     <script>
 
         var array = []
-        var cont = 0
         var saida = document.getElementById('idSaida')
-        var saida2 = document.getElementById('idSaida2')
-        var saida3 = document.getElementById('idSaida3')
-        var saida4 = document.getElementById('idSaida4')
 
         function enviarNumero() {
 
             let numero = Number(document.getElementById("idNumber").value)
             let botaoEnviar = document.getElementById("idBotaoEnviar")
 
-            // enviando numeros informados para o array e subindo o cont +1
+            // enviando numeros informados para o array
             array.push(numero)
-            cont++
 
             // limpando campo de digitacao do usuario
             document.getElementById("idNumber").value = ""
 
             // desaparecer botao de envio depois de 10 números enviados
-            if (cont > 9) {
+            if (array.length > 9) {
                 botaoEnviar.style.visibility = 'hidden';
             }
 
@@ -64,15 +59,28 @@
         }
 
         function listaCrescente() {
-            let arrayCrescente = array.sort((a, b) => a - b)
 
-            saida.innerText = arrayCrescente
+            for (var i = 1; i < array.length; i++)
+                for (var j = 0; j < i; j++)
+                    if (array[i] < array[j]) {
+                        var x = array[i];
+                        array[i] = array[j];
+                        array[j] = x;
+                    }
+
+            saida.innerText = array
         }
 
         function listaDecrescente() {
-            let arrayDescrescente = array.sort((a, b) => b - a)
+            for (var i = 1; i < array.length; i++)
+                for (var j = 0; j < i; j++)
+                    if (array[i] > array[j]) {
+                        var x = array[i];
+                        array[i] = array[j];
+                        array[j] = x;
+                    }
 
-            saida.innerText = arrayDescrescente
+            saida.innerText = array
         }
 
 

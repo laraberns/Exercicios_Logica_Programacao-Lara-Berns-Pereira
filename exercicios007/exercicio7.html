@@ -33,13 +33,13 @@
         <div class="formulario">
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 1</h2>
 
-            <label for="idResposta1J1" class="etiqueta" id="labelidResposta1J1"></label>
+            <label for="idResposta1J1" class="etiqueta labelidResposta1"></label>
             <input type="text" id="idResposta1J1" class="campoFormulario">
 
-            <label for="idResposta2J1" class="etiqueta" id="labelidResposta2J1"></label>
+            <label for="idResposta2J1" class="etiqueta labelidResposta2"></label>
             <input type="text" id="idResposta2J1" class="campoFormulario">
 
-            <label for="idResposta3J1" class="etiqueta" id="labelidResposta3J1"></label>
+            <label for="idResposta3J1" class="etiqueta labelidResposta3"></label>
             <input type="text" id="idResposta3J1" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
@@ -51,13 +51,13 @@
         <div class="formulario">
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 2</h2>
 
-            <label for="idResposta1J2" class="etiqueta" id="labelidResposta1J2"></label>
+            <label for="idResposta1J2" class="etiqueta labelidResposta1"></label>
             <input type="text" id="idResposta1J2" class="campoFormulario">
 
-            <label for="idResposta2J2" class="etiqueta" id="labelidResposta2J2"></label>
+            <label for="idResposta2J2" class="etiqueta labelidResposta2"></label>
             <input type="text" id="idResposta2J2" class="campoFormulario">
 
-            <label for="idResposta3J2" class="etiqueta" id="labelidResposta3J2"></label>
+            <label for="idResposta3J2" class="etiqueta labelidResposta3"></label>
             <input type="text" id="idResposta3J2" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
@@ -69,13 +69,13 @@
         <div class="formulario">
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 3</h2>
 
-            <label for="idResposta1J3" class="etiqueta" id="labelidResposta1J3"></label>
+            <label for="idResposta1J3" class="etiqueta labelidResposta1"></label>
             <input type="text" id="idResposta1J3" class="campoFormulario">
 
-            <label for="idResposta2J3" class="etiqueta" id="labelidResposta2J3"></label>
+            <label for="idResposta2J3" class="etiqueta labelidResposta2"></label>
             <input type="text" id="idResposta2J3" class="campoFormulario">
 
-            <label for="idResposta3J3" class="etiqueta" id="labelidResposta3J3"></label>
+            <label for="idResposta3J3" class="etiqueta labelidResposta3"></label>
             <input type="text" id="idResposta3J3" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
@@ -87,13 +87,13 @@
         <div class="formulario">
             <h2 class="etiqueta nomesIdadesTitulo"> Digite a Capital - Jogador 4</h2>
 
-            <label for="idResposta1J4" class="etiqueta" id="labelidResposta1J4"></label>
+            <label for="idResposta1J4" class="etiqueta labelidResposta1"></label>
             <input type="text" id="idResposta1J4" class="campoFormulario">
 
-            <label for="idResposta2J4" class="etiqueta" id="labelidResposta2J4"></label>
+            <label for="idResposta2J4" class="etiqueta labelidResposta2"></label>
             <input type="text" id="idResposta2J4" class="campoFormulario">
 
-            <label for="idResposta3J4" class="etiqueta" id="labelidResposta3J4"></label>
+            <label for="idResposta3J4" class="etiqueta labelidResposta3"></label>
             <input type="text" id="idResposta3J4" class="campoFormulario">
 
             <button type="submit" class="botaoForm campoJogadoresSelecionar">Enviar respostas</button>
@@ -115,8 +115,8 @@
                 Vencedor</label>
             <input type="text" id="idPontuacaoVencedor" class="campoFormulario" disabled>
 
-            <label for="idOrdemJogadores" class="etiqueta" id="labelidOrdemJogadores">Ordem dos
-                Jogadores</label>
+            <label for="idOrdemJogadores" class="etiqueta" id="labelidOrdemJogadores">Pontuação dos Jogadores
+                (Decrescente)</label>
             <input type="text" id="idOrdemJogadores" class="campoFormulario" disabled>
 
             <button type="button" class="botaoForm limpaArray" onclick="reiniciar()">Reiniciar Jogo</button>
@@ -152,6 +152,44 @@
         var qtdRespostasCertasJ3 = 0
         var qtdRespostasCertasJ4 = 0
 
+
+        //formular perguntas para os participantes - gerando estados de perguntas
+        var estado1 = estados[Math.floor(Math.random() * 25)]
+        var estado2 = estados[Math.floor(Math.random() * 25)]
+        var estado3 = estados[Math.floor(Math.random() * 25)]
+
+        if (estado2 == estado1) {
+            estado2 = estados[Math.floor(Math.random() * 25)]
+        }
+
+        // dupla verificacao para estado3 ser diferente de estado1 e estado2
+        if (estado3 == estado1 || estado2) {
+            estado3 = estados[Math.floor(Math.random() * 25)]
+        }
+
+        if (estado3 == estado1 || estado2) {
+            estado3 = estados[Math.floor(Math.random() * 25)]
+        }
+
+        //perguntas 
+        var pergunta1 = document.querySelectorAll(".labelidResposta1")
+        var pergunta2 = document.querySelectorAll(".labelidResposta2")
+        var pergunta3 = document.querySelectorAll(".labelidResposta3")
+
+        // atribuindo estados para as perguntas
+        pergunta1[0].innerText = estado1
+        pergunta2[0].innerText = estado2
+        pergunta3[0].innerText = estado3
+        pergunta1[1].innerText = estado1
+        pergunta2[1].innerText = estado2
+        pergunta3[1].innerText = estado3
+        pergunta1[2].innerText = estado1
+        pergunta2[2].innerText = estado2
+        pergunta3[2].innerText = estado3
+        pergunta1[3].innerText = estado1
+        pergunta2[3].innerText = estado2
+        pergunta3[3].innerText = estado3
+
         function salvaNumeroJogadores() {
 
             let doisJogadores = document.getElementById("id2Jogadores").checked
@@ -177,89 +215,42 @@
             if (doisJogadores) {
                 formJ1.style.display = "flex"
                 formJ2.style.display = "flex"
-            }
+            } else {
+                if (tresJogadores) {
+                    formJ1.style.display = "flex"
+                    formJ2.style.display = "flex"
+                    formJ3.style.display = "flex"
+                } else {
+                    formJ1.style.display = "flex"
+                    formJ2.style.display = "flex"
+                    formJ3.style.display = "flex"
+                    formJ4.style.display = "flex"
 
-            if (tresJogadores) {
-                formJ1.style.display = "flex"
-                formJ2.style.display = "flex"
-                formJ3.style.display = "flex"
+                }
             }
-
-            if (quatroJogadores) {
-                formJ1.style.display = "flex"
-                formJ2.style.display = "flex"
-                formJ3.style.display = "flex"
-                formJ4.style.display = "flex"
-            }
-
-            geraEstadoECapitalAleatorio()
 
             return false
 
-
-        }
-
-        function geraEstadoECapitalAleatorio() {
-            //jogador 1 - perguntas
-            let pergunta1J1 = document.getElementById("labelidResposta1J1")
-            let pergunta2J1 = document.getElementById("labelidResposta2J1")
-            let pergunta3J1 = document.getElementById("labelidResposta3J1")
-
-            pergunta1J1.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta2J1.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta3J1.innerText = estados[Math.floor(Math.random() * 25)]
-
-            //jogador 2 - perguntas
-            let pergunta1J2 = document.getElementById("labelidResposta1J2")
-            let pergunta2J2 = document.getElementById("labelidResposta2J2")
-            let pergunta3J2 = document.getElementById("labelidResposta3J2")
-
-            pergunta1J2.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta2J2.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta3J2.innerText = estados[Math.floor(Math.random() * 25)]
-
-            //jogador 3 - perguntas
-            let pergunta1J3 = document.getElementById("labelidResposta1J3")
-            let pergunta2J3 = document.getElementById("labelidResposta2J3")
-            let pergunta3J3 = document.getElementById("labelidResposta3J3")
-
-            pergunta1J3.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta2J3.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta3J3.innerText = estados[Math.floor(Math.random() * 25)]
-
-            //jogador 4 - perguntas
-            let pergunta1J4 = document.getElementById("labelidResposta1J4")
-            let pergunta2J4 = document.getElementById("labelidResposta2J4")
-            let pergunta3J4 = document.getElementById("labelidResposta3J4")
-
-            pergunta1J4.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta2J4.innerText = estados[Math.floor(Math.random() * 25)]
-            pergunta3J4.innerText = estados[Math.floor(Math.random() * 25)]
         }
 
         function salvaRespostaJ1() {
-            //perguntas J1
-            let pergunta1J1 = document.getElementById("labelidResposta1J1")
-            let pergunta2J1 = document.getElementById("labelidResposta2J1")
-            let pergunta3J1 = document.getElementById("labelidResposta3J1")
-
             //respostas J1
             let resposta1J1 = document.getElementById("idResposta1J1")
             let resposta2J1 = document.getElementById("idResposta2J1")
             let resposta3J1 = document.getElementById("idResposta3J1")
 
             //verifica se resposta 1 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta1J1.value == capitais[(estados.indexOf(pergunta1J1.innerText))]) {
+            if (resposta1J1.value == capitais[(estados.indexOf(pergunta1[0].innerText))]) {
                 qtdRespostasCertasJ1++
             }
 
             //verifica se resposta 2 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta2J1.value == capitais[(estados.indexOf(pergunta2J1.innerText))]) {
+            if (resposta2J1.value == capitais[(estados.indexOf(pergunta2[0].innerText))]) {
                 qtdRespostasCertasJ1++
             }
 
             //verifica se resposta 3 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta3J1.value == capitais[(estados.indexOf(pergunta3J1.innerText))]) {
+            if (resposta3J1.value == capitais[(estados.indexOf(pergunta3[0].innerText))]) {
                 qtdRespostasCertasJ1++
             }
 
@@ -271,28 +262,23 @@
 
 
         function salvaRespostaJ2() {
-            //perguntas J2
-            let pergunta1J2 = document.getElementById("labelidResposta1J2")
-            let pergunta2J2 = document.getElementById("labelidResposta2J2")
-            let pergunta3J2 = document.getElementById("labelidResposta3J2")
-
             //respostas J2
             let resposta1J2 = document.getElementById("idResposta1J2")
             let resposta2J2 = document.getElementById("idResposta2J2")
             let resposta3J2 = document.getElementById("idResposta3J2")
 
             //verifica se resposta 1 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta1J2.value == capitais[(estados.indexOf(pergunta1J2.innerText))]) {
+            if (resposta1J2.value == capitais[(estados.indexOf(pergunta1[0].innerText))]) {
                 qtdRespostasCertasJ2++
             }
 
             //verifica se resposta 2 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta2J2.value == capitais[(estados.indexOf(pergunta2J2.innerText))]) {
+            if (resposta2J2.value == capitais[(estados.indexOf(pergunta2[0].innerText))]) {
                 qtdRespostasCertasJ2++
             }
 
             //verifica se resposta 3 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta3J2.value == capitais[(estados.indexOf(pergunta3J2.innerText))]) {
+            if (resposta3J2.value == capitais[(estados.indexOf(pergunta3[0].innerText))]) {
                 qtdRespostasCertasJ2++
             }
 
@@ -304,28 +290,23 @@
 
 
         function salvaRespostaJ3() {
-            //perguntas J3
-            let pergunta1J3 = document.getElementById("labelidResposta1J3")
-            let pergunta2J3 = document.getElementById("labelidResposta2J3")
-            let pergunta3J3 = document.getElementById("labelidResposta3J3")
-
-            //respostas J1
+            //respostas J3
             let resposta1J3 = document.getElementById("idResposta1J3")
             let resposta2J3 = document.getElementById("idResposta2J3")
             let resposta3J3 = document.getElementById("idResposta3J3")
 
             //verifica se resposta 1 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta1J3.value == capitais[(estados.indexOf(pergunta1J3.innerText))]) {
+            if (resposta1J3.value == capitais[(estados.indexOf(pergunta1[0].innerText))]) {
                 qtdRespostasCertasJ3++
             }
 
             //verifica se resposta 2 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta2J3.value == capitais[(estados.indexOf(pergunta2J3.innerText))]) {
+            if (resposta2J3.value == capitais[(estados.indexOf(pergunta2[0].innerText))]) {
                 qtdRespostasCertasJ3++
             }
 
             //verifica se resposta 3 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta3J3.value == capitais[(estados.indexOf(pergunta3J3.innerText))]) {
+            if (resposta3J3.value == capitais[(estados.indexOf(pergunta3[0].innerText))]) {
                 qtdRespostasCertasJ3++
             }
 
@@ -337,28 +318,23 @@
 
 
         function salvaRespostaJ4() {
-            //perguntas J4
-            let pergunta1J4 = document.getElementById("labelidResposta1J4")
-            let pergunta2J4 = document.getElementById("labelidResposta2J4")
-            let pergunta3J4 = document.getElementById("labelidResposta3J4")
-
-            //respostas J14
+            //respostas J4
             let resposta1J4 = document.getElementById("idResposta1J4")
             let resposta2J4 = document.getElementById("idResposta2J4")
             let resposta3J4 = document.getElementById("idResposta3J4")
 
             //verifica se resposta 1 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta1J4.value == capitais[(estados.indexOf(pergunta1J4.innerText))]) {
+            if (resposta1J4.value == capitais[(estados.indexOf(pergunta1[0].innerText))]) {
                 qtdRespostasCertasJ4++
             }
 
             //verifica se resposta 2 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta2J4.value == capitais[(estados.indexOf(pergunta2J4.innerText))]) {
+            if (resposta2J4.value == capitais[(estados.indexOf(pergunta2[0].innerText))]) {
                 qtdRespostasCertasJ4++
             }
 
             //verifica se resposta 3 está correta, caso sim, soma no contador do respectivo jogador
-            if (resposta3J4.value == capitais[(estados.indexOf(pergunta3J4.innerText))]) {
+            if (resposta3J4.value == capitais[(estados.indexOf(pergunta3[0].innerText))]) {
                 qtdRespostasCertasJ4++
             }
 
@@ -369,13 +345,8 @@
         }
 
         function mostrarResultado() {
-
             //mostrar formulario de resultados e esconder outros
             formResultados.style.display = "flex"
-            formJ1.style.display = "none"
-            formJ2.style.display = "none"
-            formJ3.style.display = "none"
-            formJ4.style.display = "none"
             botaoResultados.style.display = "none"
 
             //array com qtd de respostas de cada jogador
@@ -402,9 +373,7 @@
             if (contJogadores == 2) {
                 if (qtdRespostasCertasJ1 == maiorNota) {
                     arrayMaiorNota.push("Jogador 1")
-                }
-
-                if (qtdRespostasCertasJ2 == maiorNota) {
+                } else {
                     arrayMaiorNota.push("Jogador 2")
                 }
             }
@@ -413,14 +382,12 @@
             if (contJogadores == 3) {
                 if (qtdRespostasCertasJ1 == maiorNota) {
                     arrayMaiorNota.push("Jogador 1")
-                }
-
-                if (qtdRespostasCertasJ2 == maiorNota) {
-                    arrayMaiorNota.push("Jogador 2")
-                }
-
-                if (qtdRespostasCertasJ3 == maiorNota) {
-                    arrayMaiorNota.push("Jogador 3")
+                } else {
+                    if (qtdRespostasCertasJ2 == maiorNota) {
+                        arrayMaiorNota.push("Jogador 2")
+                    } else {
+                        arrayMaiorNota.push("Jogador 3")
+                    }
                 }
             }
 
@@ -428,18 +395,16 @@
             if (contJogadores == 4) {
                 if (qtdRespostasCertasJ1 == maiorNota) {
                     arrayMaiorNota.push("Jogador 1")
-                }
-
-                if (qtdRespostasCertasJ2 == maiorNota) {
-                    arrayMaiorNota.push("Jogador 2")
-                }
-
-                if (qtdRespostasCertasJ3 == maiorNota) {
-                    arrayMaiorNota.push("Jogador 3")
-                }
-
-                if (qtdRespostasCertasJ3 == maiorNota) {
-                    arrayMaiorNota.push("Jogador 4")
+                } else {
+                    if (qtdRespostasCertasJ2 == maiorNota) {
+                        arrayMaiorNota.push("Jogador 2")
+                    } else {
+                        if (qtdRespostasCertasJ3 == maiorNota) {
+                            arrayMaiorNota.push("Jogador 3")
+                        } else {
+                            arrayMaiorNota.push("Jogador 4")
+                        }
+                    }
                 }
             }
 
@@ -448,126 +413,29 @@
             // exibir o nome do jogador de maiorNota
             idVencedor.value = arrayMaiorNota
 
-            // verificando ordem dos jogadores (decrescente)
+            //array para ordenar posicoes dos jogadores de forma decrescente
+            let arrayRespostasOrdenadoDecrescente = arrayRespostas.sort((a, b) => (b - a))
 
-
-            //array para ordenar posicoes dos jogadores
-            var arrayRespostasOrdenadoDecrescente = arrayRespostas.sort((a, b) => (b - a))
-            let arrayOrdemJogadores = []
-
+            //verificando quantidade de jogadores para mostrar a ordem do array
             if (contJogadores == 2) {
-                if (qtdRespostasCertasJ1 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
-                }
-                if (qtdRespostasCertasJ2 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
-                }
-                if (qtdRespostasCertasJ1 != maiorNota) {
-                    arrayOrdemJogadores.push("Posição 2 - Jogador 1")
-                }
-                if (qtdRespostasCertasJ2 != maiorNota) {
-                    arrayOrdemJogadores.push("Posição 2 - Jogador 2")
+                arrayRespostasOrdenadoDecrescente.length = 2
+            } else {
+                if (contJogadores == 3) {
+                    arrayRespostasOrdenadoDecrescente.length = 3
+                } else {
+                    arrayRespostasOrdenadoDecrescente.length = 4
                 }
             }
 
-            if (contJogadores == 3) {
-                if (qtdRespostasCertasJ1 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
-                } else {
-                    if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 1")
-                    } else {
-                        arrayOrdemJogadores.push("Posição 3 - Jogador 1")
-                    }
-                }
-                if (qtdRespostasCertasJ2 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
-                } else {
-                    if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 2")
-                    } else {
-                        arrayOrdemJogadores.push("Posição 3 - Jogador 2")
-                    }
-                }
-                if (qtdRespostasCertasJ3 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 3")
-                } else {
-                    if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 3")
-                    } else {
-                        arrayOrdemJogadores.push("Posição 3 - Jogador 3")
-                    }
-                }
-            }
-
-            if (contJogadores == 4) {
-                if (qtdRespostasCertasJ1 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 1")
-                } else {
-                    if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 1")
-                    } else {
-                        if (qtdRespostasCertasJ1 == arrayRespostasOrdenadoDecrescente[2]) {
-                            arrayOrdemJogadores.push("Posição 3 - Jogador 1")
-                        } else {
-                            arrayOrdemJogadores.push("Posição 4 - Jogador 1")
-                        }
-                    }
-                }
-                if (qtdRespostasCertasJ2 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 2")
-                } else {
-                    if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 2")
-                    } else {
-                        if (qtdRespostasCertasJ2 == arrayRespostasOrdenadoDecrescente[2]) {
-                            arrayOrdemJogadores.push("Posição 3 - Jogador 2")
-                        } else {
-                            arrayOrdemJogadores.push("Posição 4 - Jogador 2")
-                        }
-                    }
-                }
-                if (qtdRespostasCertasJ3 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 3")
-                } else {
-                    if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 3")
-                    } else {
-                        if (qtdRespostasCertasJ3 == arrayRespostasOrdenadoDecrescente[2]) {
-                            arrayOrdemJogadores.push("Posição 3 - Jogador 3")
-                        } else {
-                            arrayOrdemJogadores.push("Posição 4 - Jogador 3")
-                        }
-                    }
-                }
-                if (qtdRespostasCertasJ4 == maiorNota) {
-                    arrayOrdemJogadores.push("Posição 1 - Jogador 4")
-                } else {
-                    if (qtdRespostasCertasJ4 == arrayRespostasOrdenadoDecrescente[1]) {
-                        arrayOrdemJogadores.push("Posição 2 - Jogador 4")
-                    } else {
-                        if (qtdRespostasCertasJ4 == arrayRespostasOrdenadoDecrescente[2]) {
-                            arrayOrdemJogadores.push("Posição 3 - Jogador 4")
-                        } else {
-                            arrayOrdemJogadores.push("Posição 4 - Jogador 4")
-                        }
-                    }
-                }
-            }
-
-            let ordemJogadores = document.getElementById('idOrdemJogadores')
+            let ordemJogadores = document.getElementById("idOrdemJogadores")
 
             // exibir o arrayOrdemJogadores
-            ordemJogadores.value = arrayOrdemJogadores
-
-
-
+            ordemJogadores.value = arrayRespostasOrdenadoDecrescente
         }
 
         function reiniciar() {
             location.reload();
         }
-
 
     </script>
 </body>

@@ -57,7 +57,7 @@
         function listaResultados() {
 
             let somaDoArray = 0
-            let contadorAcimaDe7 = 0
+            let contadorAcimaDaMedia = 0
             let maiorNota = 0
             let arrayMaiorNota = []
 
@@ -69,15 +69,15 @@
             // exibir media
             saida.innerText = "A média dos alunos é igual a " + (somaDoArray/array.length).toFixed(2) + "."
 
-            // laço de repetição para iterar o array e verificar quantos itens estão >= 7
+            // laço de repetição para iterar o array e verificar quantos itens estão acima da media
             for (let contador = 0; contador < array.length; contador++) {
-                if(array[contador] >= 7){
-                    contadorAcimaDe7++
+                if(array[contador] >= (somaDoArray/array.length)){
+                    contadorAcimaDaMedia++
                 }
             }
 
-            // exibir numero de notas acima de 7
-            saida2.innerText = contadorAcimaDe7 + " alunos estão acima da média."
+            // exibir numero de notas acima da media
+            saida2.innerText = contadorAcimaDaMedia + " alunos estão acima da média da turma."
 
             // laço de repetição para iterar o array e verificar qual a maior nota
             for (let contador = 0; contador < array.length; contador++) {

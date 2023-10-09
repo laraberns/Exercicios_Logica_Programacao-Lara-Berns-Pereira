@@ -28,9 +28,9 @@
     <script>
         function converteTemperatura() {
 
-            var saida = document.getElementById('idSaida')
-            var numeroInformado = Number(document.getElementById("idNumber").value)
-            var fahrenheit = (numeroInformado * 1.8 + 32).toFixed(2)
+            let saida = document.getElementById('idSaida')
+            let numeroInformado = Number(document.getElementById("idNumber").value)
+            let fahrenheit = (numeroInformado * 1.8 + 32).toFixed(2)
 
             saida.innerText = "A temperatura informada em fahrenheit é " + fahrenheit + "°F."
 

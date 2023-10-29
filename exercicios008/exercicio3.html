@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exercício 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style-boot.css">
+</head>
+
+<body class="d-flex">
+    <form class="container align-self-center justify-self-center w-75" id="idForm">
+        <div class="mb-3">
+            <label for="idNome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="idNome" required>
+        </div>
+        <div class="mb-3">
+            <div>
+                <input type="radio" name="nmSexo" id="idFeminino" class="form-label" value="feminino" required>
+                <label for="idFeminino">Feminino</label>
+
+                <div>
+                    <input type="radio" name="nmSexo" id="idMasculino" class="form-label" value="masculino" required>
+                    <label for="idMasculino">Masculino</label>
+                </div>
+            </div>
+            <div class="my-3">
+                <label for="idSalario" class="form-label">Salário</label>
+                <input type="number" class="form-control" id="idSalario" step="0.01" min="0" required>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" id="idBotao">Enviar</button>
+            </div>
+            <p id="idResultados" class="pExer2"></p>
+        </div>
+    </form>
+
+    <script>
+        const nomeInput = document.getElementById("idNome")
+        const salarioInput = document.getElementById("idSalario")
+        const submitBotao = document.getElementById("idBotao")
+        const form = document.getElementById("idForm")
+        const resultado = document.getElementById("idResultados")
+
+        resultado.innerText = "Segue a lista das mulheres que ganham mais de R$ 5000,00: \n"
+
+        form.onsubmit = preventRefresh
+
+        let cont = 0
+        let matrixMulheres = []
+
+        function preventRefresh(event) {
+            event.preventDefault()
+            cont++
+            if (cont <= 5) {
+                salvaMatrizDasMulheres()
+                filtraMatrizMulheres()
+                mostraResultados()
+
+                salarioInput.value = ""
+                nomeInput.value = ""
+            }
+        }
+
+        function salvaMatrizDasMulheres() {
+            let sexo = document.querySelector("input[name=nmSexo]:checked").value
+            if (sexo == "feminino") {
+                matrixMulheres.push([nomeInput.value, sexo, Number(salarioInput.value)])
+            }
+        }
+
+        function filtraMatrizMulheres() {
+            matrixMulheres5K = []
+            matrixMulheres.map((column) => {
+                if (column[2] > 5000) {
+                    matrixMulheres5K.push(column)
+                }
+            }
+            )
+        }
+
+        function mostraResultados() {
+            resultado.innerText = "Segue a lista das mulheres que ganham mais de R$ 5000,00: \n"
+
+            for (item of matrixMulheres5K) {
+                resultado.innerText += item[0] + " - R$" + item[2] + "\n"
+            }
+        }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

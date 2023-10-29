@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="formulario ex1lista08form">
+        <!-- Lista de dados (seleção de item) -->
+        <label for="idFrutas" class="etiqueta">Frutas:</label>
+        <input list="idFrutas" class="campoFormulario">
+        <datalist id="idFrutas">
+            <!--  <option id=>IE</option> -->
+        </datalist>
+    </div>
+
+    <script>
+
+        var frutas = ["tomate", "morango", "limão", "abacaxi", "pêra", "uva"]
+        var dataListFrutas = document.getElementById("idFrutas")
+
+
+        for (let index = 0; index < frutas.length; index++) {
+            createElement(frutas[index], index)
+        }
+
+        function createElement(nomeFruta, index) {
+            let optionCreate = document.createElement("option")
+            let opcaoCriar = dataListFrutas.appendChild(optionCreate)
+
+            opcaoCriar.textContent = nomeFruta
+            opcaoCriar.setAttribute("id", index)
+        }
+
+    </script>
+</body>
+
+</html>
